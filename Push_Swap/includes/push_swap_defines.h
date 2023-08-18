@@ -1,48 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   push_swap_defines.h                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/18 11:17:06 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/18 13:44:16 by qbanet           ###   ########.fr       */
+/*   Created: 2023/08/18 13:15:14 by qbanet            #+#    #+#             */
+/*   Updated: 2023/08/18 13:34:29 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-
-/******************************************************************************/
-/***inludes***/
-# include"libft.h"
-# include"push_swap_structs.h"
-# include<stdio.h>
-
-/***Fonctions***/
-
-/*move_1.c*/
-void	move_sa(t_piles *piles);
-void	move_sb(t_piles *piles);
-void	move_ss(t_piles *piles);
-void	move_pa(t_piles *piles);
-void	move_pb(t_piles *piles);
-
-/*move_2.c*/
-void	move_ra(t_piles *piles);
-void	move_rb(t_piles *piles);
-void	move_rr(t_piles *piles);
-
-/*move_3.c*/
-void	move_rra(t_piles *piles);
-void	move_rrb(t_piles *piles);
-void	move_rrr(t_piles *piles);
-
-/*init.c*/
-
-/*error.c*/
-
-
+#ifndef PUSH_SWAP_DEFINES_H
+# define PUSH_SWAP_DEFINES_H
 /******************************************************************************/
 
+/*moves*/
+# define SA	"move_sa"
+# define SB	"move_sb"
+# define SS	"move_ss"
+# define PA "move_pa"
+# define PB "move_pb"
+# define RA "move_ra"
+# define RB "move_rb"
+# define RR "move_rr"
+# define RRA "move_rra"
+# define RRB "move_rrb"
+# define RRR "move_rrr"
+
+/******************************************************************************/
 #endif

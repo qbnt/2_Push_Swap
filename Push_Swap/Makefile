@@ -6,7 +6,7 @@
 #    By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/18 11:21:33 by qbanet            #+#    #+#              #
-#    Updated: 2023/08/18 13:46:49 by qbanet           ###   ########.fr        #
+#    Updated: 2023/08/18 16:50:36 by qbanet           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,9 @@ SRC_FILES = main.c\
 			move_3.c\
 			init.c\
 			error.c\
-			utiles.c
+			utiles.c\
+			parsing.c\
+			push_swap.c
 SRC = $(addprefix $(SRC_DIR)/, $(SRC_FILES))
 
 OBJ_DIR = obj

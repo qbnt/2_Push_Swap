@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 13:18:38 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/18 13:39:04 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/18 16:49:02 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,14 @@
 élément devient le dernier.*/
 void	move_ra(t_piles *piles)
 {
-	
+	piles += 0;
 }
 
 /*Décale d’une position vers le haut tous les élements de la pile b. Le premier
 élément devient le dernier.*/
 void	move_rb(t_piles *piles)
 {
-	
+	piles += 0;
 }
 
 /*ra et rb en même temps*/

@@ -1,26 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_structs.h                                :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/18 13:08:10 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/18 15:53:39 by qbanet           ###   ########.fr       */
+/*   Created: 2023/08/18 16:46:26 by qbanet            #+#    #+#             */
+/*   Updated: 2023/08/18 16:47:32 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_STRUCTS_H
-# define PUSH_SWAP_STRUCTS_H
-
-# include"libft.h"
+#include "push_swap.h"
 
 /******************************************************************************/
 
-typedef struct s_piles
+void	push_swap(t_piles *piles)
 {
-	t_list	*pile_a;
-	t_list	*pile_b;
-}	t_piles;
-
-#endif
+	piles += 0;
+}

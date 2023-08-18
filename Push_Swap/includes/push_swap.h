@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 11:17:06 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/18 13:50:53 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/18 17:01:15 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,19 @@ void	move_rra(t_piles *piles);
 void	move_rrb(t_piles *piles);
 void	move_rrr(t_piles *piles);
 
-/*init.c*/
+/*parsing.c*/
+t_list	*pars_argv2(char *args);
+t_list	*pars_argvs(char **args);
+void	set_node(t_list *list, char *elem);
+
+/*push_swap.c*/
+void	push_swap(t_piles *piles);
 
 /*error.c*/
+void	error(t_list *list);
 
 /*utiles.c*/
-
+int		strisnum(char *str);
 
 /******************************************************************************/
 

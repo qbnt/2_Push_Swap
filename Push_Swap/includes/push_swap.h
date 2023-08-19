@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 11:17:06 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/19 16:05:14 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/19 20:50:38 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,9 @@ int		verif_input(char **args);
 void	free_split(char **elems);
 
 /*utiles_2.c*/
-
+int		cmp_2_nodes_a(t_data *stacks);
+int		cmp_2_nodes_b(t_data *stacks);
+int		cmp_2_nodes_ab(t_data *stacks);
 
 /******************************************************************************/
 

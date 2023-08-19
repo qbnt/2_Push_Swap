@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 11:51:00 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/10 15:15:44 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/19 21:05:29 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -153,6 +153,7 @@ size_t		ft_strlen(const char *s);
 char		*ft_strchr(const char *str, int c);
 char		*ft_strrchr(const char *str, int c);
 
+int			ft_strcmp(char const *s1, char const *s2);
 int			ft_strncmp(const char *s1, const char *s2, size_t n);
 char		*ft_strnstr(const char *big, const char *little, size_t len);
 char		*ft_strncpy(char *dest, char *src, unsigned int n);

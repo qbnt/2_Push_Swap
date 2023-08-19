@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 13:05:41 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/19 12:49:36 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/19 20:52:23 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,37 @@
 n’y en a qu’un ou aucun.*/
 void	move_sa(t_data *stacks)
 {
-	stacks += 0;
+	t_list	*first;
+	t_list	*second;
+	t_list	*third;
+
+	if (!stacks->stack_a || !stacks->stack_a->next)
+		return ;
+	first = stacks->stack_a;
+	second = stacks->stack_a->next;
+	third = second->next;
+	stacks->stack_a = second;
+	second->next = first;
+	first->next = third;
 }
 
 /*Intervertit les 2 premiers éléments au sommet de la pile b. Ne fait rien s’il
 n’y en a qu’un ou aucun.*/
 void	move_sb(t_data *stacks)
 {
-	stacks += 0;
+	t_list	*first;
+	t_list	*second;
+	t_list	*third;
+
+	if (!stacks->stack_b || !stacks->stack_b->next)
+		return ;
+	first = stacks->stack_b;
+	second = stacks->stack_b->next;
+	third = second->next;
+	stacks->stack_b = second;
+	second->next = first;
+	first->next = third;
+
 }
 
 /*sa et sb en même temps.*/
@@ -37,12 +60,26 @@ void	move_ss(t_data *stacks)
 est vide.*/
 void	move_pa(t_data *stacks)
 {
-	stacks += 0;
+	t_list	*first_b;
+
+	if (!stacks->stack_b || !stacks->stack_b->next)
+		return ;
+	first_b = stacks->stack_b;
+	stacks->stack_b = first_b->next;
+	first_b->next = stacks->stack_a;
+	stacks->stack_a = first_b;
 }
 
 /*Prend le premier élément au sommet de a et le met sur b. Ne fait rien si a
 est vide.*/
 void	move_pb(t_data *stacks)
 {
-	stacks += 0;
+	t_list	*first_a;
+
+	if (!stacks->stack_a || !stacks->stack_a->next)
+		return ;
+	first_a = stacks->stack_a;
+	stacks->stack_a = first_a->next;
+	first_a->next = stacks->stack_b;
+	stacks->stack_b = first_a;
 }

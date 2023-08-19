@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 13:24:25 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/19 13:35:54 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/19 20:38:32 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,44 @@
 élément devient le premier.*/
 void	move_rra(t_data *stacks)
 {
-	stacks += 0;
+	t_list	*last;
+	t_list	*prev_last;
+
+	if (!stacks->stack_a || !stacks->stack_a->next)
+		return ;
+	last = stacks->stack_a;
+	prev_last = NULL;
+	while (last->next)
+	{
+		prev_last = last;
+		last = last->next;
+	}
+	last->next = stacks->stack_a;
+	stacks->stack_a = last;
+	if (prev_last)
+		prev_last->next = NULL;
 }
 
 /*Décale d’une position vers le bas tous les élements de la pile b. Le dernier
 élément devient le premier.*/
 void	move_rrb(t_data *stacks)
 {
-	stacks += 0;
+	t_list	*last;
+	t_list	*prev_last;
+
+	if (!stacks->stack_b || !stacks->stack_b->next)
+		return ;
+	last = stacks->stack_b;
+	prev_last = NULL;
+	while (last->next)
+	{
+		prev_last = last;
+		last = last->next;
+	}
+	last->next = stacks->stack_b;
+	stacks->stack_b = last;
+	if (prev_last)
+		prev_last->next = NULL;
 }
 
 /*rra et rrb en même temps*/

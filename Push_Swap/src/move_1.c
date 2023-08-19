@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 13:05:41 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/19 20:52:23 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/19 21:20:31 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ void	move_sb(t_data *stacks)
 	stacks->stack_b = second;
 	second->next = first;
 	first->next = third;
-
 }
 
 /*sa et sb en même temps.*/

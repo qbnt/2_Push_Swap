@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 13:41:00 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/18 17:00:48 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/19 14:03:03 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,10 @@
 
 /******************************************************************************/
 
-void	error(t_list *list)
+void	error(t_list *list, t_data *stacks)
 {
 	ft_printf("Error\n");
 	free(list);
+	free(stacks);
 	exit(EXIT_FAILURE);
 }

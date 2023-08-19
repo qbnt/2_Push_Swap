@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 11:17:06 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/18 17:01:15 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/19 14:03:16 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,35 +22,36 @@
 /***Fonctions***/
 
 /*move_1.c*/
-void	move_sa(t_piles *piles);
-void	move_sb(t_piles *piles);
-void	move_ss(t_piles *piles);
-void	move_pa(t_piles *piles);
-void	move_pb(t_piles *piles);
+void	move_sa(t_data *stacks);
+void	move_sb(t_data *stacks);
+void	move_ss(t_data *stacks);
+void	move_pa(t_data *stacks);
+void	move_pb(t_data *stacks);
 
 /*move_2.c*/
-void	move_ra(t_piles *piles);
-void	move_rb(t_piles *piles);
-void	move_rr(t_piles *piles);
+void	move_ra(t_data *stacks);
+void	move_rb(t_data *stacks);
+void	move_rr(t_data *stacks);
 
 /*move_3.c*/
-void	move_rra(t_piles *piles);
-void	move_rrb(t_piles *piles);
-void	move_rrr(t_piles *piles);
+void	move_rra(t_data *stacks);
+void	move_rrb(t_data *stacks);
+void	move_rrr(t_data *stacks);
 
 /*parsing.c*/
-t_list	*pars_argv2(char *args);
-t_list	*pars_argvs(char **args);
-void	set_node(t_list *list, char *elem);
+t_list	*pars_argv(char **args, t_data *stacks);
+void	set_node(t_list **list, char *elem);
 
 /*push_swap.c*/
-void	push_swap(t_piles *piles);
+void	push_swap(t_data *stacks);
 
 /*error.c*/
-void	error(t_list *list);
+void	error(t_list *list, t_data *stacks);
 
 /*utiles.c*/
 int		strisnum(char *str);
+void	ft_printlst(t_list *lst);
+void	provisoire_free(t_data *stacks);
 
 /******************************************************************************/
 

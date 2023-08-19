@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 13:18:38 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/18 16:49:02 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/19 12:49:45 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,21 +16,21 @@
 
 /*Décale d’une position vers le haut tous les élements de la pile a. Le premier
 élément devient le dernier.*/
-void	move_ra(t_piles *piles)
+void	move_ra(t_data *stacks)
 {
-	piles += 0;
+	stacks += 0;
 }
 
 /*Décale d’une position vers le haut tous les élements de la pile b. Le premier
 élément devient le dernier.*/
-void	move_rb(t_piles *piles)
+void	move_rb(t_data *stacks)
 {
-	piles += 0;
+	stacks += 0;
 }
 
 /*ra et rb en même temps*/
-void	move_rr(t_piles *piles)
+void	move_rr(t_data *stacks)
 {
-	move_ra(piles);
-	move_rb(piles);
+	move_ra(stacks);
+	move_rb(stacks);
 }

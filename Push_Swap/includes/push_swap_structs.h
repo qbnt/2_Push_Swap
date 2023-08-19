@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 13:08:10 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/18 15:53:39 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/19 12:51:51 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,11 @@
 
 /******************************************************************************/
 
-typedef struct s_piles
+typedef struct s_data
 {
-	t_list	*pile_a;
-	t_list	*pile_b;
-}	t_piles;
+	t_list	*stack_a;
+	t_list	*stack_b;
+	int		nb_elems;
+}	t_data;
 
 #endif

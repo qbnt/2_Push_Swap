@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utiles.c                                           :+:      :+:    :+:   */
+/*   utiles_1.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 13:46:19 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/19 15:52:24 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/19 23:42:53 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,17 @@ void	provisoire_free(t_data *stacks)
 		if (tmp->content)
 			free(tmp->content);
 		free(tmp);
+	}
+	if (stacks->stack_b)
+	{
+		while (stacks->stack_b)
+		{
+			tmp = stacks->stack_b;
+			stacks->stack_b = stacks->stack_b->next;
+			if (tmp->content)
+				free(tmp->content);
+			free(tmp);
+		}
 	}
 	free(stacks);
 }

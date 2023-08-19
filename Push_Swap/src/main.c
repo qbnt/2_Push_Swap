@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 11:18:52 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/19 21:20:46 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/20 00:03:29 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,11 @@ int	main(int argc, char **argv)
 	t_data	*stacks;
 
 	stacks = ft_calloc(1, sizeof(t_data));
-/******parsing******/
 	if (argc == 2)
 		parsing_argv2(argv, stacks);
 	else if (argc > 2)
 		parsing_argv_else(argv, stacks);
-/******algo******/
-	sort_3(stacks);
-	push_swap(stacks);
-/******utils******/
+	sort_3(&stacks->stack_a);
 	if (stacks->stack_a)
 	{
 		ft_printf("Stack A :\n");

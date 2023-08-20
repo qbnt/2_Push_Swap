@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 13:05:41 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/20 00:21:45 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/20 16:29:12 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	move_pa(t_data *stacks)
 {
 	t_list	*first_b;
 
-	if (!stacks->stack_b || !stacks->stack_b->next)
+	if (!stacks->stack_b)
 		return ;
 	first_b = stacks->stack_b;
 	stacks->stack_b = first_b->next;
@@ -79,7 +79,7 @@ void	move_pb(t_data *stacks)
 {
 	t_list	*first_a;
 
-	if (!stacks->stack_a || !stacks->stack_a->next)
+	if (!stacks->stack_a)
 		return ;
 	first_a = stacks->stack_a;
 	stacks->stack_a = first_a->next;

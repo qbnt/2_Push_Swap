@@ -6,7 +6,7 @@
 #    By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/18 11:21:33 by qbanet            #+#    #+#              #
-#    Updated: 2023/08/19 16:06:01 by qbanet           ###   ########.fr        #
+#    Updated: 2023/08/20 16:36:23 by qbanet           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,8 +25,11 @@ SRC_FILES = main.c\
 			move_1.c\
 			move_2.c\
 			move_3.c\
+			move_utiles.c\
 			push_swap.c\
-			algo_1.c\
+			algo_3.c\
+			algo_5.c\
+			main_algo.c\
 			error.c\
 			utiles_1.c\
 			utiles_2.c

@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 11:51:00 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/19 21:05:29 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/20 15:23:15 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ typedef struct s_gnl
 typedef struct s_list
 {
 	void			*content;
-	size_t			content_size;
 	struct s_list	*next;
+	struct s_list	*prev;
 }					t_list;
 
 /*********************************** TYPEDEF **********************************/

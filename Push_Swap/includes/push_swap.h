@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 11:17:06 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/20 11:29:33 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/20 16:35:54 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,14 +43,23 @@ void	move_rra(t_list **lst_a);
 void	move_rrb(t_list **lst_b);
 void	move_rrr(t_data *stacks);
 
+/*move_utiles.c*/
+t_list	*stack_new(int *content);
+void	stack_add_front(t_list **lst, t_list *new_node);
+void	stack_add_back(t_list **lst, t_list *new_node);
+t_list	*stack_last(t_list *lst);
+
 /*push_swap.c*/
 void	push_swap(t_data *stacks);
 
-/*algo_1.c*/
-void	sort_3(t_list **lst);
-void	algo_4_10(t_data *stacks);
-void	algo_11_100(t_data *stacks);
-void	algo_101(t_data *stacks);
+/*algo_3.c*/
+void	algo_3(t_list **lst);
+
+/*algo_5.c*/
+void	algo_5(t_data *stacks);
+
+/*main_algo.c*/
+void	main_algo(t_data *stacks);
 
 /*error.c*/
 void	error(void);

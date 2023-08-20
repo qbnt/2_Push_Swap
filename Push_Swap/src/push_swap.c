@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 16:46:26 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/19 12:49:26 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/20 11:27:31 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,11 @@
 
 void	push_swap(t_data *stacks)
 {
-	stacks += 0;
+	ft_printf("push swap\n");
+	if (stacks->nb_elems > 3 && stacks->nb_elems <= 10)
+		algo_4_10(stacks);
+	else if (stacks->nb_elems > 10 && stacks->nb_elems <= 100)
+		algo_11_100(stacks);
+	else
+		algo_101(stacks);
 }

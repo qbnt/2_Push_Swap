@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 16:13:45 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/19 21:15:43 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/20 11:24:17 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ static t_list	*pars_argv(char **args)
 static void	set_node(t_list **list, char *elem)
 {
 	t_list	*new_node;
-	int		*val;
+	long	*val;
 
 	val = malloc(sizeof(int));
 	*val = ft_atoi(elem);

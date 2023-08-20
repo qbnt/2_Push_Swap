@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 11:17:06 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/20 00:03:25 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/20 11:26:48 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,9 @@ void	push_swap(t_data *stacks);
 
 /*algo_1.c*/
 void	sort_3(t_list **lst);
+void	algo_4_10(t_data *stacks);
+void	algo_11_100(t_data *stacks);
+void	algo_101(t_data *stacks);
 
 /*error.c*/
 void	error(void);

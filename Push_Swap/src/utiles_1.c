@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 13:46:19 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/19 23:42:53 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/20 11:29:46 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void	ft_printlst(t_list *lst)
 	ft_printf("Elem %d = %d\n", i++, *(int *)lst->content);
 }
 
-void	provisoire_free(t_data *stacks)
+void	free_all(t_data *stacks)
 {
 	t_list	*tmp;
 

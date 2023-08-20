@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 11:18:52 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/20 11:19:30 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/20 11:33:02 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,8 @@ int	main(int argc, char **argv)
 		parsing_argv_else(argv, stacks);
 	if (stacks->nb_elems == 3)
 		sort_3(&stacks->stack_a);
-	else
+	else if (stacks->nb_elems > 3)
 		push_swap(stacks);
-
 	if (stacks->stack_a)
 	{
 		ft_printf("\nStack A :\n");
@@ -38,6 +37,6 @@ int	main(int argc, char **argv)
 		ft_printf("\nStack B :\n");
 		ft_printlst(stacks->stack_b);
 	}
-	provisoire_free(stacks);
+	free_all(stacks);
 	return (0);
 }

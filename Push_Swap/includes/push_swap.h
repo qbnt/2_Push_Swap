@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 11:17:06 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/20 11:26:48 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/20 11:29:33 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	error(void);
 /*utiles_1.c*/
 int		strisnum(char *str);
 void	ft_printlst(t_list *lst);
-void	provisoire_free(t_data *stacks);
+void	free_all(t_data *stacks);
 int		verif_input(char **args);
 void	free_split(char **elems);
 

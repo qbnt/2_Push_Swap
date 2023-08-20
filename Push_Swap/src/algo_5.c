@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 15:46:35 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/20 16:29:54 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/20 23:33:42 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ void	algo_5(t_data *stacks)
 			move_ra(&stacks->stack_a);
 	}
 	algo_3(&stacks->stack_a);
-	if (stacks->stack_b->content < stacks->stack_b->next->content)
+	if (*(int *)stacks->stack_b->content
+		< *(int *)stacks->stack_b->next->content)
 		move_sb(&stacks->stack_b);
 	move_pa(stacks);
 	move_pa(stacks);

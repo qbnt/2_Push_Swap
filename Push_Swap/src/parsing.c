@@ -6,14 +6,14 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 16:13:45 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/20 15:38:21 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/23 14:23:06 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static t_list	*pars_argv(char **args);
-static void		set_node(t_list **list, char *elem);
+static t_stack	*pars_argv(char **args);
+static void		set_node(t_stack **list, char *elem);
 static int		has_duplicate(char **elems);
 
 /******************************************************************************/
@@ -36,7 +36,7 @@ void	parsing_argv2(char **argv, t_data *stacks)
 		error();
 	}
 	stacks->stack_a = pars_argv(args);
-	stacks->nb_elems = ft_lstsize(stacks->stack_a);
+	stacks->nb_elems = stack_size(stacks->stack_a);
 	free_split(args);
 }
 
@@ -48,12 +48,12 @@ void	parsing_argv_else(char **argv, t_data *stacks)
 		error();
 	}
 	stacks->stack_a = pars_argv(argv + 1);
-	stacks->nb_elems = ft_lstsize(stacks->stack_a);
+	stacks->nb_elems = stack_size(stacks->stack_a);
 }
 
-static t_list	*pars_argv(char **args)
+static t_stack	*pars_argv(char **args)
 {
-	t_list	*parsed_list;
+	t_stack	*parsed_list;
 	int		i;
 
 	i = 0;
@@ -66,18 +66,12 @@ static t_list	*pars_argv(char **args)
 	return (parsed_list);
 }
 
-static void	set_node(t_list **list, char *elem)
+static void	set_node(t_stack **list, char *elem)
 {
-	t_list	*new_node;
-	int		*val;
+	int		val;
 
-	val = malloc(sizeof(int));
-	*val = ft_atoi(elem);
-	new_node = stack_new(val);
-	if (!(*list))
-		*list = new_node;
-	else
-		ft_lstadd_back(list, new_node);
+	val = ft_atoi(elem);
+	*list = insert_back_stack(*list, val);
 }
 
 static int	has_duplicate(char **elems)

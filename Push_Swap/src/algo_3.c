@@ -6,48 +6,48 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 15:58:05 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/20 16:29:47 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/23 15:33:17 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	case_a(t_list **lst);
-static void	case_b(t_list **lst);
+static void	case_a(t_data *stacks);
+static void	case_b(t_data *stacks);
 
 /******************************************************************************/
 
-void	algo_3(t_list **lst)
+void	algo_3(t_data *stacks)
 {
-	if (*(int *)(*lst)->content < *(int *)(*lst)->next->content && \
-		*(int *)(*lst)->next->content > *(int *)(*lst)->next->next->content && \
-		*(int *)(*lst)->content > *(int *)(*lst)->next->next->content)
-		return (move_rra(lst));
-	if (*(int *)(*lst)->content > *(int *)(*lst)->next->content && \
-		*(int *)(*lst)->next->content < *(int *)(*lst)->next->next->content && \
-		*(int *)(*lst)->content < *(int *)(*lst)->next->next->content)
-		return (move_sa(lst));
-	if (*(int *)(*lst)->content > *(int *)(*lst)->next->content && \
-		*(int *)(*lst)->next->content < *(int *)(*lst)->next->next->content && \
-		*(int *)(*lst)->content > *(int *)(*lst)->next->next->content)
-		return (move_ra(lst));
-	if (*(int *)(*lst)->content > *(int *)(*lst)->next->content && \
-		*(int *)(*lst)->next->content > *(int *)(*lst)->next->next->content)
-		return (case_a(lst));
-	if (*(int *)(*lst)->content < *(int *)(*lst)->next->content && \
-		*(int *)(*lst)->next->content > *(int *)(*lst)->next->next->content && \
-		*(int *)(*lst)->content < *(int *)(*lst)->next->next->content)
-		return (case_b(lst));
+	if (stacks->stack_a->content < stacks->stack_a->next->content && \
+	stacks->stack_a->next->content > stacks->stack_a->next->next->content && \
+	stacks->stack_a->content > stacks->stack_a->next->next->content)
+		return (accio("rra", stacks));
+	if (stacks->stack_a->content > stacks->stack_a->next->content && \
+	stacks->stack_a->next->content < stacks->stack_a->next->next->content && \
+	stacks->stack_a->content < stacks->stack_a->next->next->content)
+		return (accio("sa", stacks));
+	if (stacks->stack_a->content > stacks->stack_a->next->content && \
+	stacks->stack_a->next->content < stacks->stack_a->next->next->content && \
+	stacks->stack_a->content > stacks->stack_a->next->next->content)
+		return (accio("ra", stacks));
+	if (stacks->stack_a->content > stacks->stack_a->next->content && \
+	stacks->stack_a->next->content > stacks->stack_a->next->next->content)
+		return (case_a(stacks));
+	if (stacks->stack_a->content < stacks->stack_a->next->content && \
+	stacks->stack_a->next->content > stacks->stack_a->next->next->content && \
+	stacks->stack_a->content < stacks->stack_a->next->next->content)
+		return (case_b(stacks));
 }
 
-static void	case_a(t_list **lst)
+static void	case_a(t_data *stacks)
 {
-	move_ra(lst);
-	move_sa(lst);
+	accio("ra", stacks);
+	accio("sa", stacks);
 }
 
-static void	case_b(t_list **lst)
+static void	case_b(t_data *stacks)
 {
-	move_sa(lst);
-	move_ra(lst);
+	accio("sa", stacks);
+	accio("ra", stacks);
 }

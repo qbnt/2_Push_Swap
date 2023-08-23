@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 13:46:19 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/20 11:29:46 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/23 15:40:08 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,41 +55,15 @@ int	strisnum(char *str)
 	return (TRUE);
 }
 
-void	ft_printlst(t_list *lst)
+void	ft_printstk(t_stack *stk)
 {
 	int	i;
 
 	i = 0;
-	while (lst->next)
+	while (stk->next)
 	{
-		ft_printf("Elem %d = %d\n", i++, *(int *)lst->content);
-		lst = lst->next;
+		ft_printf("Elem %d = %d\n", i++, stk->content);
+		stk = stk->next;
 	}
-	ft_printf("Elem %d = %d\n", i++, *(int *)lst->content);
-}
-
-void	free_all(t_data *stacks)
-{
-	t_list	*tmp;
-
-	while (stacks->stack_a)
-	{
-		tmp = stacks->stack_a;
-		stacks->stack_a = stacks->stack_a->next;
-		if (tmp->content)
-			free(tmp->content);
-		free(tmp);
-	}
-	if (stacks->stack_b)
-	{
-		while (stacks->stack_b)
-		{
-			tmp = stacks->stack_b;
-			stacks->stack_b = stacks->stack_b->next;
-			if (tmp->content)
-				free(tmp->content);
-			free(tmp);
-		}
-	}
-	free(stacks);
+	ft_printf("Elem %d = %d\n", i++, stk->content);
 }

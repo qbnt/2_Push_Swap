@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 13:15:14 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/19 15:09:37 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/23 12:51:27 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,7 @@
 /*stacks*/
 # define S_A stacks->stack_b
 # define S_B stacks->stack_b
+
+# define TEST printf("oui\n")
 /******************************************************************************/
 #endif

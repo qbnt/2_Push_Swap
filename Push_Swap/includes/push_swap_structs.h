@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 13:08:10 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/19 12:51:51 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/23 12:23:39 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,18 @@
 
 /******************************************************************************/
 
+typedef struct s_stack
+{
+	int				content;
+	struct s_stack	*next;
+	struct s_stack	*prev;
+}	t_stack;
+
 typedef struct s_data
 {
-	t_list	*stack_a;
-	t_list	*stack_b;
-	int		nb_elems;
+	t_stack			*stack_a;
+	t_stack			*stack_b;
+	int				nb_elems;
 }	t_data;
 
 #endif

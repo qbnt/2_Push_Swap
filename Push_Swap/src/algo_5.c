@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 15:46:35 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/20 23:33:42 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/23 12:55:02 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	algo_5(t_data *stacks)
 	while (i++ < 5)
 	{
 		if (*(int *)(stacks->stack_a)->content < pivot)
-			move_pb(stacks);
+			move_pb(&stacks->stack_a, &stacks->stack_b);
 		else
 			move_ra(&stacks->stack_a);
 	}

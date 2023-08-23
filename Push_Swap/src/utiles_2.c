@@ -1,3 +1,4 @@
+
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -5,56 +6,73 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/19 16:03:36 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/20 00:11:42 by qbanet           ###   ########.fr       */
+/*   Created: 2023/08/23 12:26:27 by qbanet            #+#    #+#             */
+/*   Updated: 2023/08/23 14:55:33 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include"push_swap.h"
 
-/******************************************************************************/
+/*----------------------------------------------------------------------------*/
 
-int	cmp_2_nodes_a(t_data *stacks)
+t_stack	*set_empty_stack(void)
 {
-	t_list	*tmp1;
-	t_list	*tmp2;
-	int		dif;
+	t_stack	*new_stack;
 
-	if (!stacks->stack_a || !stacks->stack_a->next)
-		return (0);
-	tmp1 = stacks->stack_a;
-	tmp2 = stacks->stack_a->next;
-	dif = *(int *)tmp1->content - *(int *)tmp2->content;
-	ft_printf("dif = %d\n", dif);
-	return (dif);
+	new_stack = ft_calloc(1, sizeof(new_stack));
+	return (new_stack);
 }
 
-int	cmp_2_nodes_b(t_data *stacks)
+int	is_empty_stack(t_stack *stk)
 {
-	t_list	*tmp1;
-	t_list	*tmp2;
-	int		dif;
-
-	if (!stacks->stack_b || !stacks->stack_b->next)
-		return (0);
-	tmp1 = stacks->stack_b;
-	tmp2 = stacks->stack_b->next;
-	dif = *(int *)tmp1->content - *(int *)tmp2->content;
-	ft_printf("dif = %d\n", dif);
-	return (dif);
+	if (!stk)
+		return (1);
+	return (0);
 }
 
-int	cmp_2_nodes_ab(t_data *stacks)
+int	stack_size(t_stack *stk)
 {
-	t_list	*tmp1;
-	t_list	*tmp2;
-	int		dif;
+	int		size;
+	t_stack	*tmp;
 
-	if (!stacks->stack_a || !stacks->stack_b)
-		return (0);
-	tmp1 = stacks->stack_a;
-	tmp2 = stacks->stack_b;
-	dif = *(int *)tmp1->content - *(int *)tmp2->content;
-	ft_printf("dif = %d\n", dif);
-	return (dif);
+	size = 0;
+	tmp = stk;
+
+	while (tmp)
+	{
+		size ++;
+		tmp = tmp->next;
+	}
+	return (size);
+}
+
+t_stack	*insert_back_stack(t_stack *stk, int val)
+{
+	t_stack	*new_node;
+	t_stack	*last;
+
+	new_node = malloc(sizeof(t_stack));
+	new_node->content = val;
+	new_node->next = NULL;
+	if (is_empty_stack(stk))
+	{
+		new_node->prev = NULL;
+		return (new_node);
+	}
+	last = stk;
+	while (last->next)
+		last = last->next;
+	last->next = new_node;
+	new_node->prev = last;
+	return (stk);
+}
+
+t_stack	*last_elem_stack(t_stack *stk)
+{
+	t_stack	*last;
+
+	last = stk;
+	while (last->next)
+		last = last->next;
+	return (last);
 }

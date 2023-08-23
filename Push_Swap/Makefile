@@ -6,7 +6,7 @@
 #    By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/18 11:21:33 by qbanet            #+#    #+#              #
-#    Updated: 2023/08/23 18:36:23 by qbanet           ###   ########.fr        #
+#    Updated: 2023/08/23 18:53:03 by qbanet           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,7 @@ SRC_FILES = parsing.c\
 			push_swap.c\
 			algo_3.c\
 			algo_5.c\
+			sort_a.c\
 			error.c\
 			utiles_1.c\
 			utiles_2.c

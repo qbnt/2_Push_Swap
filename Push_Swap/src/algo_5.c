@@ -6,14 +6,14 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 15:46:35 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/23 12:55:02 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/23 18:37:15 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	*stack_to_array(t_list *stack);
-static int	get_pivoit_five(t_list *stack);
+static int	*stack_to_array(t_stack *stack);
+static int	get_pivoit_five(t_stack *stack);
 
 /******************************************************************************/
 
@@ -26,20 +26,20 @@ void	algo_5(t_data *stacks)
 	i = 0;
 	while (i++ < 5)
 	{
-		if (*(int *)(stacks->stack_a)->content < pivot)
-			move_pb(&stacks->stack_a, &stacks->stack_b);
+		if ((stacks->stack_a)->content < pivot)
+			accio("pb", stacks);
 		else
-			move_ra(&stacks->stack_a);
+			accio("ra", stacks);
 	}
-	algo_3(&stacks->stack_a);
-	if (*(int *)stacks->stack_b->content
-		< *(int *)stacks->stack_b->next->content)
-		move_sb(&stacks->stack_b);
-	move_pa(stacks);
-	move_pa(stacks);
+	algo_3(stacks);
+	if (stacks->stack_b->content
+		< stacks->stack_b->next->content)
+		accio("sb", stacks);
+	accio("pa", stacks);
+	accio("pa", stacks);
 }
 
-static int	*stack_to_array(t_list *stack)
+static int	*stack_to_array(t_stack *stack)
 {
 	int		i;
 	int		*array;
@@ -48,13 +48,13 @@ static int	*stack_to_array(t_list *stack)
 	i = 0;
 	while (stack)
 	{
-		array[i++] = *(int *)stack->content;
+		array[i++] = stack->content;
 		stack = stack->next;
 	}
 	return (array);
 }
 
-static int	get_pivoit_five(t_list *stack)
+static int	get_pivoit_five(t_stack *stack)
 {
 	int		pivot;
 	int		iv[2];

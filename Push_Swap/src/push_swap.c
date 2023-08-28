@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 16:46:26 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/23 18:45:54 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/26 23:56:57 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,5 @@ void	push_swap(t_data *stacks)
 		return (algo_3(stacks));
 	if (stacks->nb_elems == 5)
 		return (algo_5(stacks));
-	return (sort_a(stacks));
+	return (sort_a(stacks, stacks->nb_elems));
 }

@@ -6,11 +6,11 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 14:02:14 by qbanet            #+#    #+#             */
-/*   Updated: 2023/06/27 14:02:31 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/29 14:54:05 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
 
 t_bool	ft_verif_ext(const char *s, const char *ext)
 {

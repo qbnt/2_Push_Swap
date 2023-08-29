@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 13:46:19 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/23 15:40:08 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/29 15:28:23 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,4 +66,18 @@ void	ft_printstk(t_stack *stk)
 		stk = stk->next;
 	}
 	ft_printf("Elem %d = %d\n", i++, stk->content);
+}
+
+int	is_sort(t_stack **stk)
+{
+	t_stack	*tmp;
+
+	tmp = *stk;
+	while (tmp->next)
+	{
+		if (tmp->content > tmp->next->content)
+			return (0);
+		tmp = tmp->next;
+	}
+	return (1);
 }

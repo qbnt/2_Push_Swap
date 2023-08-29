@@ -6,11 +6,11 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 17:12:43 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/03 13:35:53 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/29 14:49:57 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
 
 int	get_base_length(char *base)
 {

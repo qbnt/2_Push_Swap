@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 11:17:06 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/26 23:56:41 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/29 15:20:54 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,8 @@ void	algo_3(t_data *stacks);
 /*algo_5.c*/
 void	algo_5(t_data *stacks);
 
-/*sort_a.c*/
-void	sort_a(t_data *stacks, int n);
-void	sort_b(t_data *stacks, int n);
+/*turk_algo.c*/
+void	turk_algo(t_data *stacks);
 
 /*error.c*/
 void	error(void);
@@ -56,6 +55,7 @@ int		strisnum(char *str);
 void	ft_printstk(t_stack *stk);
 int		verif_input(char **args);
 void	free_split(char **elems);
+int		is_sort(t_stack **stk);
 
 /*utiles_2.c*/
 t_stack	*set_empty_stack(void);

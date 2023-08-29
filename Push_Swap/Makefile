@@ -6,7 +6,7 @@
 #    By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/18 11:21:33 by qbanet            #+#    #+#              #
-#    Updated: 2023/08/29 14:33:00 by qbanet           ###   ########.fr        #
+#    Updated: 2023/08/29 21:56:07 by qbanet           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,8 @@ SRC_FILES = parsing.c\
 			turk_algo.c\
 			error.c\
 			utiles_1.c\
-			utiles_2.c
+			utiles_2.c\
+			utiles_3.c
 SRC = $(addprefix $(SRC_DIR)/, $(SRC_FILES))
 
 OBJ_DIR = obj

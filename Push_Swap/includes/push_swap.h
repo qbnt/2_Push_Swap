@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 11:17:06 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/29 15:20:54 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/29 22:00:22 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,10 @@ int		is_empty_stack(t_stack *stk);
 int		stack_size(t_stack *stk);
 t_stack	*insert_back_stack(t_stack *stk, int val);
 t_stack	*last_elem_stack(t_stack *stk);
+
+/*utiles_3.c*/
+int		find_index(t_stack *stk, int content);
+
 
 /*----------------------------------------------------------------------------*/
 

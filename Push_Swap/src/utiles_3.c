@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   turk_algo.c                                        :+:      :+:    :+:   */
+/*   utiles_3.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/23 18:44:42 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/29 21:46:37 by qbanet           ###   ########.fr       */
+/*   Created: 2023/08/29 21:54:19 by qbanet            #+#    #+#             */
+/*   Updated: 2023/08/29 22:00:11 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,15 @@
 
 /*----------------------------------------------------------------------------*/
 
-void	turk_algo(t_data *stacks)
+int	find_index(t_stack *stk, int content)
 {
-	int	i;
+	int		i;
 
-	stacks->stack_b = NULL;
-	
-	accio("pb", stacks);
-	accio("pb", stacks);
+	i = 0;
+	while (stk->content != content)
+	{
+		i++;
+		stk = stk->next;
+	}
+	return (i);
 }

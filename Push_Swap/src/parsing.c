@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 16:13:45 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/23 14:23:06 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/30 12:00:34 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ void	parsing_argv2(char **argv, t_data *stacks)
 		error();
 	}
 	stacks->stack_a = pars_argv(args);
-	stacks->nb_elems = stack_size(stacks->stack_a);
+	stacks->sizes.size_b = 0;
+	stacks->sizes.size_a = stack_size(stacks->stack_a);
 	free_split(args);
 }
 
@@ -48,7 +49,8 @@ void	parsing_argv_else(char **argv, t_data *stacks)
 		error();
 	}
 	stacks->stack_a = pars_argv(argv + 1);
-	stacks->nb_elems = stack_size(stacks->stack_a);
+	stacks->sizes.size_a = stack_size(stacks->stack_a);
+	stacks->sizes.size_b = 0;
 }
 
 static t_stack	*pars_argv(char **args)

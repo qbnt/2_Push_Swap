@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 18:44:42 by qbanet            #+#    #+#             */
-/*   Updated: 2023/09/04 15:15:03 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/09/04 19:47:58 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	sort_to_b(t_data *stacks, t_sizes *sizes);
 static int	test_mouves(t_data *stacks, int nbr);
-static int	make_mouve(t_data *stacks, int mouve_count);
+static void	make_mouve(t_data *stacks, int mouve_count);
 //static void	return_to_a(t_data *stacks, t_sizes *sizes);
 
 /*----------------------------------------------------------------------------*/
@@ -46,6 +46,7 @@ static void	sort_to_b(t_data *stacks, t_sizes *sizes)
 			i = test_mouves(stacks, tmp->content);
 		tmp = tmp->next;
 	}
+	printf("i final = %d\n", i);
 	make_mouve(stacks, i);
 	sizes->size_a --;
 	sizes->size_b ++;
@@ -55,16 +56,19 @@ static int	test_mouves(t_data *stacks, int nbr)
 {
 	int	i;
 
-	i = 0;
-	if (find_index(stacks->stack_a, nbr))
-		i = stacks->sizes.size_a - find_index(stacks->stack_a, nbr);
-	i = find_place(stacks, nbr) + i;
+	i = 1;
+	if (find_index(stacks->stack_a, nbr) < stacks->sizes.size_a / 2)
+		i += find_index(stacks->stack_a, nbr);
+	else
+		i += find_index(stacks->stack_a, nbr) - stacks->sizes.size_a / 2;
+	i += find_place(stacks, nbr);
 	return (i);
 }
 
-static int	make_mouve(t_data *stacks, int mouve_count)
+static void	make_mouve(t_data *stacks, int mouve_count)
 {
-	
+	if (mouve_count)
+		accio("pb", stacks);
 }
 
 /*

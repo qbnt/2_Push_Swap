@@ -6,15 +6,15 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 18:44:42 by qbanet            #+#    #+#             */
-/*   Updated: 2023/09/04 14:28:54 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/09/04 15:15:03 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 static void	sort_to_b(t_data *stacks, t_sizes *sizes);
-static int	test_mouve(t_data *stacks, int nbr);
-static int	place_to(t_stack **stk_to, t_sizes *sizes, int nbr_to_place);
+static int	test_mouves(t_data *stacks, int nbr);
+static int	make_mouve(t_data *stacks, int mouve_count);
 //static void	return_to_a(t_data *stacks, t_sizes *sizes);
 
 /*----------------------------------------------------------------------------*/
@@ -27,8 +27,8 @@ void	turk_algo(t_data *stacks)
 	stacks->sizes.size_b = stack_size(stacks->stack_b);
 	while (stacks->sizes.size_a > 3 && !is_sort(&stacks->stack_a))
 		sort_to_b(stacks, &stacks->sizes);
-/*
 	algo_3(stacks);
+/*
 	return_to_a(stacks, &stacks->sizes);
 */
 }
@@ -38,52 +38,33 @@ static void	sort_to_b(t_data *stacks, t_sizes *sizes)
 	int		i;
 	t_stack	*tmp;
 
-	i = test_mouve(stacks, stacks->stack_a->content);
-	i += 0;
+	i = test_mouves(stacks, stacks->stack_a->content);
 	tmp = stacks->stack_a;
 	while (tmp)
 	{
+		if (test_mouves(stacks, tmp->content) < i)
+			i = test_mouves(stacks, tmp->content);
 		tmp = tmp->next;
 	}
+	make_mouve(stacks, i);
 	sizes->size_a --;
 	sizes->size_b ++;
 }
 
-static int	test_mouve(t_data *stacks, int nbr)
+static int	test_mouves(t_data *stacks, int nbr)
 {
 	int	i;
 
 	i = 0;
-	if (nbr > stacks->stack_b->content &&)
+	if (find_index(stacks->stack_a, nbr))
+		i = stacks->sizes.size_a - find_index(stacks->stack_a, nbr);
+	i = find_place(stacks, nbr) + i;
 	return (i);
 }
 
-static int	place_to(t_stack **stk_to, t_sizes *sizes, int nbr_to_place)
+static int	make_mouve(t_data *stacks, int mouve_count)
 {
-	int		i;
-	t_stack	*tmp;
-
-	i = 1;
-	sizes += 0;
-	if (nbr_to_place > (*stk_to)->content
-		&& nbr_to_place < (last_elem_stack(*stk_to))->content)
-		i = 0;
-	else if (nbr_to_place > max_stack(stk_to)
-		|| nbr_to_place < min_stack(stk_to))
-		i = find_index(*stk_to, max_stack(stk_to));
-	else
-	{
-		tmp = (*stk_to)->next;
-		while ((tmp->content > nbr_to_place || tmp->content < nbr_to_place)
-			&& tmp)
-		{
-			printf("nbr = %d\n", nbr_to_place);
-			printf("nbr_cheacked = %d\n", tmp->content);
-			i ++;
-			tmp = tmp->next;
-		}
-	}
-	return (i);
+	
 }
 
 /*

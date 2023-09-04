@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 21:54:19 by qbanet            #+#    #+#             */
-/*   Updated: 2023/09/04 13:33:07 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/09/04 15:08:28 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,22 @@ int	find_index(t_stack *stk, int content)
 		i++;
 		stk = stk->next;
 	}
+	return (i);
+}
+
+int	find_place(t_data *stacks, int nbr)
+{
+	int	i;
+
+	i = 0;
+	if (nbr > stacks->stack_b->content
+		&& nbr < last_elem_stack(stacks->stack_b)->content)
+		i = 0;
+	else if (nbr > max_stack(stacks->stack_b)
+		|| nbr < min_stack(stacks->stack_b))
+		i = ft_find_index(stacks->stack_b, max_stack(stacks->stack_b));
+	else
+		
 	return (i);
 }
 

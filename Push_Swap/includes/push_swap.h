@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 11:17:06 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/29 22:00:22 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/09/04 13:33:41 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,8 @@ t_stack	*last_elem_stack(t_stack *stk);
 
 /*utiles_3.c*/
 int		find_index(t_stack *stk, int content);
-
+int		max_stack(t_stack **stk);
+int		min_stack(t_stack **stk);
 
 /*----------------------------------------------------------------------------*/
 

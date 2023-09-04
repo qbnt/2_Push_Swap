@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 13:08:10 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/30 11:56:30 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/09/04 11:14:30 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,10 @@ typedef struct s_sizes
 {
 	int				size_a;
 	int				size_b;
+	int				min_a;
+	int				min_b;
+	int				max_a;
+	int				max_b;
 }	t_sizes;
 
 typedef struct s_data

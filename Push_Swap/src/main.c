@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 11:18:52 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/30 12:00:40 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/09/04 11:19:54 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ int	main(int argc, char **argv)
 		parsing_argv2(argv, stacks);
 	else if (argc > 2)
 		parsing_argv_else(argv, stacks);
-
 	push_swap(stacks);
 /*
 	if (stacks->stack_a)

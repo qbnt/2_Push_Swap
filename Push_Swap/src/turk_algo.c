@@ -6,16 +6,16 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 18:44:42 by qbanet            #+#    #+#             */
-/*   Updated: 2023/09/04 19:47:58 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/09/05 12:12:31 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 static void	sort_to_b(t_data *stacks, t_sizes *sizes);
-static int	test_mouves(t_data *stacks, int nbr);
-static void	make_mouve(t_data *stacks, int mouve_count);
-//static void	return_to_a(t_data *stacks, t_sizes *sizes);
+static int	test_moves(t_data *stacks, int nbr);
+static void	make_move(t_data *stacks, int move_count);
+static void	return_to_a(t_data *stacks, t_sizes *sizes);
 
 /*----------------------------------------------------------------------------*/
 
@@ -25,34 +25,35 @@ void	turk_algo(t_data *stacks)
 	accio("pb", stacks);
 	stacks->sizes.size_a = stack_size(stacks->stack_a);
 	stacks->sizes.size_b = stack_size(stacks->stack_b);
-	while (stacks->sizes.size_a > 3 && !is_sort(&stacks->stack_a))
+	while (stacks->sizes.size_a > 3 || !is_sort(&stacks->stack_a))
 		sort_to_b(stacks, &stacks->sizes);
-	algo_3(stacks);
-/*
+	if (stacks->sizes.size_a == 3 && !is_sort(&stacks->stack_a))
+		algo_3(stacks);
 	return_to_a(stacks, &stacks->sizes);
-*/
 }
 
 static void	sort_to_b(t_data *stacks, t_sizes *sizes)
 {
-	int		i;
+	int		moves;
 	t_stack	*tmp;
+	int		i;
 
-	i = test_mouves(stacks, stacks->stack_a->content);
-	tmp = stacks->stack_a;
-	while (tmp)
+	moves = test_moves(stacks, stacks->stack_a->content);
+	i = 1;
+	tmp = stacks->stack_a->next;
+	while (tmp && i < moves)
 	{
-		if (test_mouves(stacks, tmp->content) < i)
-			i = test_mouves(stacks, tmp->content);
+		if (test_moves(stacks, tmp->content) < moves)
+			moves = test_moves(stacks, tmp->content);
 		tmp = tmp->next;
+		i++;
 	}
-	printf("i final = %d\n", i);
-	make_mouve(stacks, i);
+	make_move(stacks, moves);
 	sizes->size_a --;
 	sizes->size_b ++;
 }
 
-static int	test_mouves(t_data *stacks, int nbr)
+static int	test_moves(t_data *stacks, int nbr)
 {
 	int	i;
 
@@ -65,16 +66,20 @@ static int	test_mouves(t_data *stacks, int nbr)
 	return (i);
 }
 
-static void	make_mouve(t_data *stacks, int mouve_count)
+static void	make_move(t_data *stacks, int move_count)
 {
-	if (mouve_count)
-		accio("pb", stacks);
+	int	i;
+
+	i = 0;
+	while (i < move_count)
+	{
+		i++;
+	}
+	return (accio("pb", stacks));
 }
 
-/*
 static void	return_to_a(t_data *stacks, t_sizes *sizes)
 {
-	stacks += 0;
-	sizes += 0;
+	while (sizes->size_b--)
+		accio("pa", stacks);
 }
-*/

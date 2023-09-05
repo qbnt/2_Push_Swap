@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 18:44:42 by qbanet            #+#    #+#             */
-/*   Updated: 2023/09/05 12:12:31 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/09/05 14:59:05 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,12 @@ void	turk_algo(t_data *stacks)
 {
 	accio("pb", stacks);
 	accio("pb", stacks);
+	TEST;
 	stacks->sizes.size_a = stack_size(stacks->stack_a);
 	stacks->sizes.size_b = stack_size(stacks->stack_b);
-	while (stacks->sizes.size_a > 3 || !is_sort(&stacks->stack_a))
+	while (stacks->sizes.size_a > 3)
 		sort_to_b(stacks, &stacks->sizes);
-	if (stacks->sizes.size_a == 3 && !is_sort(&stacks->stack_a))
-		algo_3(stacks);
+	algo_3(stacks);
 	return_to_a(stacks, &stacks->sizes);
 }
 
@@ -41,7 +41,7 @@ static void	sort_to_b(t_data *stacks, t_sizes *sizes)
 	moves = test_moves(stacks, stacks->stack_a->content);
 	i = 1;
 	tmp = stacks->stack_a->next;
-	while (tmp && i < moves)
+	while (tmp || i < moves)
 	{
 		if (test_moves(stacks, tmp->content) < moves)
 			moves = test_moves(stacks, tmp->content);
@@ -51,6 +51,7 @@ static void	sort_to_b(t_data *stacks, t_sizes *sizes)
 	make_move(stacks, moves);
 	sizes->size_a --;
 	sizes->size_b ++;
+	TEST;
 }
 
 static int	test_moves(t_data *stacks, int nbr)
@@ -68,13 +69,24 @@ static int	test_moves(t_data *stacks, int nbr)
 
 static void	make_move(t_data *stacks, int move_count)
 {
-	int	i;
+	t_stack	*tmp;
+	int		a_index;
+	int		b_index;
 
-	i = 0;
-	while (i < move_count)
+	a_index = 0;
+	b_index = 0;
+
+	tmp = stacks->stack_a;
+	while (!(test_moves(stacks, tmp->content) == move_count)
+		&& a_index < stacks->sizes.size_a)
 	{
-		i++;
+		tmp = tmp->next;
+		a_index ++;
 	}
+	while (!(find_place(stacks, tmp->content) == (move_count - a_index))
+		&& b_index < stacks->sizes.size_b)
+		b_index ++;
+	place_stacks_elems(a_index, b_index, stacks);
 	return (accio("pb", stacks));
 }
 

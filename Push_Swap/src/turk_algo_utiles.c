@@ -6,13 +6,14 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 11:07:26 by qbanet            #+#    #+#             */
-/*   Updated: 2023/09/07 10:56:16 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/09/07 16:09:27 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 static void	double_rotate(int *a_index, int *b_index, t_data *stacks);
+static void	single_rotate(int *a_index, int *b_index, t_data *stacks);
 
 /*----------------------------------------------------------------------------*/
 
@@ -38,54 +39,42 @@ int	find_place(t_stack *stk, int nbr)
 	t_stack	*tmp1;
 	t_stack	*tmp2;
 
-	i = 0;
+	i = 1;
 	tmp1 = stk;
 	tmp2 = stk->next;
-	printf("___nbr = %d\ntmp1 = %d, tmp2 = %d\n", nbr, tmp1->content,
-		tmp2->content);
 	if (nbr > stk->content && nbr < last_elem_stack(stk)->content)
-	{
-		printf("______sorted\n");
-		i = 0;
-	}
+		return (0);
 	else if (nbr > max_stack(&stk) || nbr < min_stack(&stk))
 	{
-		printf("______min = %d max = %d\n", min_stack(&stk), max_stack(&stk));
-		i = find_index(stk, max_stack(&stk));
+		TEST ;
+		printf("nbr = %d\n", nbr);
+		return (find_index(stk, max_stack(&stk)));
 	}
 	else
 	{
-		printf("______autre\n");
-		while ((tmp1->content < nbr && tmp2->content > nbr))
+		TEST2 ;
+		printf("nbr = %d\n", nbr);
+		while (tmp2->next)
 		{
+			if (tmp1->content > nbr && tmp2->content < nbr)
+				return (++ i);
 			tmp1 = tmp1->next;
 			tmp2 = tmp2->next;
 			i ++;
 		}
 	}
-	printf("______i de b final = %d\n\n", i);
 	return (i);
 }
 
 void	place_stacks_elems(int a_index, int b_index, t_data *stacks)
 {
+	printf("a index = %d, b index = %d\n", a_index, b_index);
 	while (a_index || b_index)
 	{
 		if (a_index && b_index)
 			double_rotate(&a_index, &b_index, stacks);
 		else
-		{
-			if (a_index)
-			{
-				accio("ra", stacks);
-				a_index --;
-			}
-			else
-			{
-				accio("rb", stacks);
-				b_index --;
-			}
-		}
+			single_rotate(&a_index, &b_index, stacks);
 	}
 }
 
@@ -97,16 +86,16 @@ static void	double_rotate(int *a_index, int *b_index, t_data *stacks)
 	else if (*a_index > stacks->sizes.size_a / 2
 		&& *b_index > stacks->sizes.size_b / 2)
 	{
-		if (++ *a_index > stacks->sizes.size_a)
+		if (++ *a_index >= stacks->sizes.size_a)
 			*a_index = 0;
-		if (++ *b_index > stacks->sizes.size_b)
+		if (++ *b_index >= stacks->sizes.size_b)
 			*b_index = 0;
 		return (accio("rrr", stacks));
 	}
 	else if (*a_index > stacks->sizes.size_a / 2
 		&& *b_index < stacks->sizes.size_b / 2)
 	{
-		if (++ *a_index > stacks->sizes.size_a)
+		if (++ *a_index >= stacks->sizes.size_a)
 			*a_index = 0;
 		accio("rra", stacks);
 		return (*b_index -= 1, accio("rb", stacks));
@@ -115,8 +104,40 @@ static void	double_rotate(int *a_index, int *b_index, t_data *stacks)
 		&& *b_index > stacks->sizes.size_b / 2)
 	{
 		accio("ra", stacks);
-		if (++ *b_index > stacks->sizes.size_b)
+		if (++ *b_index >= stacks->sizes.size_b)
 			*b_index = 0;
 		return (accio("rrb", stacks));
+	}
+}
+
+static void	single_rotate(int *a_index, int *b_index, t_data *stacks)
+{
+	if (*a_index)
+	{
+		if (*a_index <= stacks->sizes.size_a / 2)
+		{
+			accio("ra", stacks);
+			*a_index -= 1;
+		}
+		else
+		{
+			accio("rra", stacks);
+			if (++ *a_index >= stacks->sizes.size_a)
+				*a_index = 0;
+		}
+	}
+	else if (*b_index)
+	{
+		if (*b_index <= stacks->sizes.size_b / 2)
+		{
+			accio("rb", stacks);
+			*b_index -= 1;
+		}
+		else
+		{
+			accio("rrb", stacks);
+			if (++ *b_index >= stacks->sizes.size_b)
+				*b_index = 0;
+		}
 	}
 }

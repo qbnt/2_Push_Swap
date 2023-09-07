@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 11:17:06 by qbanet            #+#    #+#             */
-/*   Updated: 2023/09/05 14:00:55 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/09/07 09:33:25 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,12 @@ void	algo_5(t_data *stacks);
 
 /*turk_algo.c*/
 void	turk_algo(t_data *stacks);
+int		test_moves(t_data *stacks, int nbr);
 
 /*turk_algo_utiles.c*/
-int		find_place(t_data *stacks, int nbr);
+int		find_place(t_stack *stk, int nbr);
 void	place_stacks_elems(int a_index, int b_index, t_data *stacks);
+void	test_sort_b(t_data *stacks, int *moves, t_stack *tmp1, t_stack *tmp2);
 
 /*error.c*/
 void	error(void);

@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 11:07:26 by qbanet            #+#    #+#             */
-/*   Updated: 2023/09/07 16:09:27 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/09/07 16:57:23 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int	test_moves(t_data *stacks, int nbr)
 		moves_b = find_place(stacks->stack_b, nbr);
 	else
 		moves_b = stacks->sizes.size_b - find_place(stacks->stack_b, nbr);
+//	printf("moves a = %d, moves b = %d\n", moves_a, moves_b);
 	return (moves_a + moves_b);
 }
 
@@ -39,21 +40,17 @@ int	find_place(t_stack *stk, int nbr)
 	t_stack	*tmp1;
 	t_stack	*tmp2;
 
-	i = 1;
+	i = 0;
 	tmp1 = stk;
 	tmp2 = stk->next;
 	if (nbr > stk->content && nbr < last_elem_stack(stk)->content)
 		return (0);
 	else if (nbr > max_stack(&stk) || nbr < min_stack(&stk))
 	{
-		TEST ;
-		printf("nbr = %d\n", nbr);
 		return (find_index(stk, max_stack(&stk)));
 	}
 	else
 	{
-		TEST2 ;
-		printf("nbr = %d\n", nbr);
 		while (tmp2->next)
 		{
 			if (tmp1->content > nbr && tmp2->content < nbr)
@@ -68,7 +65,7 @@ int	find_place(t_stack *stk, int nbr)
 
 void	place_stacks_elems(int a_index, int b_index, t_data *stacks)
 {
-	printf("a index = %d, b index = %d\n", a_index, b_index);
+//	printf("a index = %d, b index = %d\n", a_index, b_index);
 	while (a_index || b_index)
 	{
 		if (a_index && b_index)

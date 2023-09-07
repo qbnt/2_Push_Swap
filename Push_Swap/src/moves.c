@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 14:27:08 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/30 10:44:37 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/09/07 17:03:33 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ void	rotate(t_stack **stk)
 	tmp->next = NULL;
 	tmp->prev = last_elem_stack(*stk);
 	tmp->prev->next = tmp;
+	(*stk)->prev = NULL;
 }
 
 void	rrotate(t_stack **stk)
@@ -71,6 +72,7 @@ void	rrotate(t_stack **stk)
 	tmp = last_elem_stack(*stk);
 	tmp->prev->next = NULL;
 	tmp->next = *stk;
+	tmp->next->prev = tmp;
 	tmp->prev = NULL;
 	*stk = tmp;
 }

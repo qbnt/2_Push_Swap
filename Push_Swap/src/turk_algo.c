@@ -6,14 +6,13 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 18:44:42 by qbanet            #+#    #+#             */
-/*   Updated: 2023/09/07 17:11:40 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/09/08 11:50:35 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 static void	sort_to_b(t_data *stacks);
-static void	make_move(t_data *stacks);
 static void	return_to_a(t_data *stacks, t_sizes *sizes);
 
 /*----------------------------------------------------------------------------*/
@@ -22,7 +21,6 @@ void	turk_algo(t_data *stacks)
 {
 	accio("pb", stacks);
 	accio("pb", stacks);
-//	TEST ;
 	stacks->sizes.size_a = stack_size(stacks->stack_a);
 	stacks->sizes.size_b = stack_size(stacks->stack_b);
 	while (stacks->sizes.size_a > 3)
@@ -31,7 +29,6 @@ void	turk_algo(t_data *stacks)
 		algo_3(stacks);
 	return_to_a(stacks, &stacks->sizes);
 	printf("\n");
-//	ft_printstk(stacks->stack_a);
 }
 
 static void	sort_to_b(t_data *stacks)
@@ -40,12 +37,6 @@ static void	sort_to_b(t_data *stacks)
 	int		i;
 	t_stack	*tmp1;
 	t_stack	*tmp2;
-/*
-	ft_printstk(stacks->stack_a);
-	printf("\n");
-	ft_printstk(stacks->stack_b);
-	printf("\n");
-*/
 
 	moves = test_moves(stacks, stacks->stack_a->content);
 	tmp1 = stacks->stack_a;
@@ -60,14 +51,9 @@ static void	sort_to_b(t_data *stacks)
 		tmp2 = tmp2->prev;
 		i ++;
 	}
-//	printf("____moves = % d\n", moves);
-//	TEST ;
-	make_move(stacks);
+	place_stacks_elems(stacks->a_index, stacks->b_index, stacks);
 	stacks->sizes.size_a --;
 	stacks->sizes.size_b ++;
-//	TEST ;
-//	TEST ;
-//	printf("\n");
 }
 
 void	test_sort_b(t_data *stacks, int *moves, t_stack *tmp1, t_stack *tmp2)
@@ -84,12 +70,6 @@ void	test_sort_b(t_data *stacks, int *moves, t_stack *tmp1, t_stack *tmp2)
 		stacks->a_index = find_index(stacks->stack_a, tmp2->content);
 		stacks->b_index = find_place(stacks->stack_b, tmp2->content);
 	}
-}
-
-static void	make_move(t_data *stacks)
-{
-	place_stacks_elems(stacks->a_index, stacks->b_index, stacks);
-	return (accio("pb", stacks));
 }
 
 static void	return_to_a(t_data *stacks, t_sizes *sizes)

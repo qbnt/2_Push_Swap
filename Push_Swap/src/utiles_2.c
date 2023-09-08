@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 12:26:27 by qbanet            #+#    #+#             */
-/*   Updated: 2023/09/04 11:45:38 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/09/08 12:15:10 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ int	stack_size(t_stack *stk)
 
 	size = 0;
 	tmp = stk;
-
 	while (tmp)
 	{
 		size ++;

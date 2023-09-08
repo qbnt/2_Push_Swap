@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 18:44:42 by qbanet            #+#    #+#             */
-/*   Updated: 2023/09/08 11:50:35 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/09/08 12:15:38 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ void	turk_algo(t_data *stacks)
 	if (!is_sort(&stacks->stack_a))
 		algo_3(stacks);
 	return_to_a(stacks, &stacks->sizes);
-	printf("\n");
 }
 
 static void	sort_to_b(t_data *stacks)

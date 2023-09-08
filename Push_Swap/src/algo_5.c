@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 15:46:35 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/23 18:37:15 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/09/08 12:14:44 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,4 +82,3 @@ static int	get_pivoit_five(t_stack *stack)
 	free(array);
 	return (pivot);
 }
-

@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 18:44:42 by qbanet            #+#    #+#             */
-/*   Updated: 2023/09/08 12:15:38 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/09/08 16:07:18 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,29 @@ static void	return_to_a(t_data *stacks, t_sizes *sizes)
 {
 	while (sizes->size_b)
 	{
-		accio("pa", stacks);
+		if (stacks->stack_a->content > last_elem_stack(stacks->stack_a)->content
+			&& last_elem_stack(stacks->stack_a)->content
+			> stacks->stack_b->content)
+		{
+			while (stacks->stack_a->content
+				> last_elem_stack(stacks->stack_a)->content
+				&& last_elem_stack(stacks->stack_a)->content
+				> stacks->stack_b->content)
+				accio("rra", stacks);
+			accio("pa", stacks);
+		}
+		else
+			accio("pa", stacks);
 		stacks->sizes.size_a ++;
 		stacks->sizes.size_b --;
+	}
+	while (last_elem_stack(stacks->stack_a)->content
+		!= max_stack(&stacks->stack_a))
+	{
+		if (find_index(stacks->stack_a, min_stack(&stacks->stack_a))
+			> stacks->sizes.size_a / 2)
+			accio("rra", stacks);
+		else
+			accio("ra", stacks);
 	}
 }

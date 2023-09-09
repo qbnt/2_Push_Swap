@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 13:08:10 by qbanet            #+#    #+#             */
-/*   Updated: 2023/09/06 11:26:06 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/09/09 08:15:15 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,9 @@ typedef struct s_data
 	t_sizes			sizes;
 	int				a_index;
 	int				b_index;
-	int				move_count;
+	int				size_divided;
+	int				min;
+	int				max;
 }	t_data;
 
 #endif

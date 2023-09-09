@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 18:44:42 by qbanet            #+#    #+#             */
-/*   Updated: 2023/09/09 09:03:47 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/09/09 13:41:24 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,15 @@ void	turk_algo(t_data *stacks)
 	stacks->sizes.size_b = stack_size(stacks->stack_b);
 	while (stacks->sizes.size_a > 3)
 		sort_to_b(stacks);
+	stacks->max = max_stack(&stacks->stack_b);
+	if (find_index(stacks->stack_b, stacks->max) <= stacks->sizes.size_b / 2)
+		while (stacks->stack_b->content != stacks->max)
+			accio("rb", stacks);
+	else
+		while (stacks->stack_b->content != stacks->max)
+			accio("rrb", stacks);
+	if (stacks->size_divided > 3)
+		divided_algo(stacks);
 	algo_3(stacks);
 	back_divided(stacks);
 	return_to_a(stacks);
@@ -63,13 +72,13 @@ static void	sort_to_b(t_data *stacks)
 
 void	test_sort_b(t_data *stacks, int *moves, t_stack *tmp1, t_stack *tmp2)
 {
-	if (tmp1 && test_moves(stacks, tmp1->content) < *moves)
+	if (tmp1 && test_moves(stacks, tmp1->content) <= *moves)
 	{
 		*moves = test_moves(stacks, tmp1->content);
 		stacks->a_index = find_index(stacks->stack_a, tmp1->content);
 		stacks->b_index = find_place(stacks->stack_b, tmp1->content);
 	}
-	if (tmp2 && test_moves(stacks, tmp2->content) < *moves)
+	if (tmp2 && test_moves(stacks, tmp2->content) <= *moves)
 	{
 		*moves = test_moves(stacks, tmp2->content);
 		stacks->a_index = find_index(stacks->stack_a, tmp2->content);
@@ -82,6 +91,7 @@ static void	back_divided(t_data *stacks)
 	int	i;
 
 	i = 3;
+	stacks->max = max_stack(&stacks->stack_a);
 	if (stacks->stack_a->content > stacks->stack_b->content)
 	{
 		while (stacks->stack_b->content != stacks->max)
@@ -122,7 +132,7 @@ static void	return_to_a(t_data *stacks)
 	while (last_elem_stack(stacks->stack_a)->content < stacks->stack_a->content)
 	{
 		if (find_index(stacks->stack_a, stacks->min)
-			< stack_size(stacks->stack_a) / 2)
+			<= stack_size(stacks->stack_a) / 2)
 			accio("ra", stacks);
 		else
 			accio("rra", stacks);

@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 11:07:26 by qbanet            #+#    #+#             */
-/*   Updated: 2023/09/09 09:31:19 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/09/09 13:33:55 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,15 +78,15 @@ static void	double_rotate(int *a_ind, int *b_ind, t_data *stacks, t_sizes *s)
 		return (*a_ind -= 1, *b_ind -= 1, accio("rr", stacks));
 	else if (*a_ind > s->size_a / 2 && *b_ind > s->size_b / 2)
 	{
-		if (++ *a_ind >= s->size_a)
+		if (++ *a_ind == s->size_a)
 			*a_ind = 0;
-		if (++ *b_ind >= s->size_b)
+		if (++ *b_ind == s->size_b)
 			*b_ind = 0;
 		return (accio("rrr", stacks));
 	}
 	else if (*a_ind > s->size_a / 2 && *b_ind < s->size_b / 2)
 	{
-		if (++ *a_ind >= s->size_a)
+		if (++ *a_ind == s->size_a)
 			*a_ind = 0;
 		accio("rra", stacks);
 		return (*b_ind -= 1, accio("rb", stacks));
@@ -94,7 +94,7 @@ static void	double_rotate(int *a_ind, int *b_ind, t_data *stacks, t_sizes *s)
 	else if (*a_ind <= s->size_a / 2 && *b_ind >= s->size_b / 2)
 	{
 		accio("ra", stacks);
-		if (++ *b_ind >= s->size_b)
+		if (++ *b_ind == s->size_b)
 			*b_ind = 0;
 		return (*a_ind -= 1, accio("rrb", stacks));
 	}
@@ -104,7 +104,7 @@ static void	single_rotate(int *a_index, int *b_index, t_data *stacks)
 {
 	if (*a_index)
 	{
-		if (*a_index < stacks->sizes.size_a / 2)
+		if (*a_index <= stacks->sizes.size_a / 2)
 			return (*a_index -= 1, accio("ra", stacks));
 		else
 		{
@@ -115,7 +115,7 @@ static void	single_rotate(int *a_index, int *b_index, t_data *stacks)
 	}
 	else if (*b_index)
 	{
-		if (*b_index < stacks->sizes.size_b / 2)
+		if (*b_index <= stacks->sizes.size_b / 2)
 			return (*b_index -= 1, accio("rb", stacks));
 		else
 		{

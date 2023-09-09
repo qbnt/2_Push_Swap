@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 18:44:42 by qbanet            #+#    #+#             */
-/*   Updated: 2023/09/09 08:33:09 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/09/09 09:03:47 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,10 +107,8 @@ static void	return_to_a(t_data *stacks)
 
 	i = stacks->size_divided;
 	if (stacks->stack_a->content > stacks->stack_b->content)
-	{
 		while (stacks->stack_b)
 			accio("pa", stacks);
-	}
 	while (stacks->stack_b)
 	{
 		while (i > 0 && last_elem_stack(stacks->stack_a)->content
@@ -123,6 +121,10 @@ static void	return_to_a(t_data *stacks)
 	}
 	while (last_elem_stack(stacks->stack_a)->content < stacks->stack_a->content)
 	{
-		accio("rra", stacks);
+		if (find_index(stacks->stack_a, stacks->min)
+			< stack_size(stacks->stack_a) / 2)
+			accio("ra", stacks);
+		else
+			accio("rra", stacks);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 11:07:26 by qbanet            #+#    #+#             */
-/*   Updated: 2023/09/08 12:13:29 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/09/09 09:31:19 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,12 @@ int	test_moves(t_data *stacks, int nbr)
 	int	moves_a;
 	int	moves_b;
 
-	if (find_index(stacks->stack_a, nbr) < stacks->sizes.size_a / 2)
+	if (find_index(stacks->stack_a, nbr) <= stacks->sizes.size_a / 2)
 		moves_a = find_index(stacks->stack_a, nbr);
 	else
 		moves_a = stacks->sizes.size_a - find_index(stacks->stack_a, nbr);
-	if (find_place(stacks->stack_b, nbr) < stacks->sizes.size_b / 2)
+	if (find_place(stacks->stack_b, nbr) <= stacks->sizes.size_b / 2)
 		moves_b = find_place(stacks->stack_b, nbr);
-	else if (find_place(stacks->stack_b, nbr) == stacks->sizes.size_b / 2)
-		moves_b = stacks->sizes.size_b - find_place(stacks->stack_b, nbr);
 	else
 		moves_b = stacks->sizes.size_b - find_place(stacks->stack_b, nbr) + 1;
 	return (moves_a + moves_b);
@@ -46,9 +44,7 @@ int	find_place(t_stack *stk, int nbr)
 	tmp2 = stk->next;
 	if (nbr > stk->content && nbr < last_elem_stack(stk)->content)
 		return (0);
-	else if (nbr > max_stack(&stk))
-		return (find_index(stk, max_stack(&stk)));
-	else if (nbr < min_stack(&stk))
+	else if (nbr > max_stack(&stk) || nbr < min_stack(&stk))
 		return (find_index(stk, max_stack(&stk)));
 	else
 	{
@@ -78,9 +74,9 @@ void	place_stacks_elems(int a_index, int b_index, t_data *stacks)
 
 static void	double_rotate(int *a_ind, int *b_ind, t_data *stacks, t_sizes *s)
 {
-	if (*a_ind < s->size_a / 2 && *b_ind < s->size_b / 2)
+	if (*a_ind <= s->size_a / 2 && *b_ind <= s->size_b / 2)
 		return (*a_ind -= 1, *b_ind -= 1, accio("rr", stacks));
-	else if (*a_ind >= s->size_a / 2 && *b_ind >= s->size_b / 2)
+	else if (*a_ind > s->size_a / 2 && *b_ind > s->size_b / 2)
 	{
 		if (++ *a_ind >= s->size_a)
 			*a_ind = 0;
@@ -88,14 +84,14 @@ static void	double_rotate(int *a_ind, int *b_ind, t_data *stacks, t_sizes *s)
 			*b_ind = 0;
 		return (accio("rrr", stacks));
 	}
-	else if (*a_ind >= s->size_a / 2 && *b_ind < s->size_b / 2)
+	else if (*a_ind > s->size_a / 2 && *b_ind < s->size_b / 2)
 	{
 		if (++ *a_ind >= s->size_a)
 			*a_ind = 0;
 		accio("rra", stacks);
 		return (*b_ind -= 1, accio("rb", stacks));
 	}
-	else if (*a_ind < s->size_a / 2 && *b_ind > s->size_b / 2)
+	else if (*a_ind <= s->size_a / 2 && *b_ind >= s->size_b / 2)
 	{
 		accio("ra", stacks);
 		if (++ *b_ind >= s->size_b)

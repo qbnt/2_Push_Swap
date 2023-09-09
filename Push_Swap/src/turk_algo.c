@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 18:44:42 by qbanet            #+#    #+#             */
-/*   Updated: 2023/09/09 13:41:24 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/09/09 21:56:23 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,16 @@ void	turk_algo(t_data *stacks)
 		stacks->size_divided = 3;
 	stacks->max = max_stack(&stacks->stack_a);
 	stacks->min = min_stack(&stacks->stack_a);
-	accio("pb", stacks);
-	accio("pb", stacks);
+	if (!is_sort(&stacks->stack_a) && stack_size(stacks->stack_a) > 3)
+		accio("pb", stacks);
+	if (!is_sort(&stacks->stack_a) && stack_size(stacks->stack_a) > 3)
+		accio("pb", stacks);
 	stacks->sizes.size_a = stack_size(stacks->stack_a);
 	stacks->sizes.size_b = stack_size(stacks->stack_b);
-	while (stacks->sizes.size_a > 3)
+	while (stacks->sizes.size_a > stacks->size_divided)
 		sort_to_b(stacks);
 	stacks->max = max_stack(&stacks->stack_b);
-	if (find_index(stacks->stack_b, stacks->max) <= stacks->sizes.size_b / 2)
+	if (find_index(stacks->stack_b, stacks->max) < stacks->sizes.size_b / 2)
 		while (stacks->stack_b->content != stacks->max)
 			accio("rb", stacks);
 	else
@@ -91,7 +93,7 @@ static void	back_divided(t_data *stacks)
 	int	i;
 
 	i = 3;
-	stacks->max = max_stack(&stacks->stack_a);
+	stacks->max = max_stack(&stacks->stack_b);
 	if (stacks->stack_a->content > stacks->stack_b->content)
 	{
 		while (stacks->stack_b->content != stacks->max)
@@ -130,11 +132,5 @@ static void	return_to_a(t_data *stacks)
 		accio("pa", stacks);
 	}
 	while (last_elem_stack(stacks->stack_a)->content < stacks->stack_a->content)
-	{
-		if (find_index(stacks->stack_a, stacks->min)
-			<= stack_size(stacks->stack_a) / 2)
-			accio("ra", stacks);
-		else
-			accio("rra", stacks);
-	}
+		accio("rra", stacks);
 }

@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 21:54:19 by qbanet            #+#    #+#             */
-/*   Updated: 2023/09/09 13:13:34 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/09/10 16:28:13 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,10 @@ int	max_stack(t_stack **stk)
 	int		max;
 
 	tmp = *stk;
-	max = 0;
+	max = tmp->content;
 	while (tmp)
 	{
-		if (max < tmp->content)
+		if (tmp->content > max)
 			max = tmp->content;
 		tmp = tmp->next;
 	}
@@ -52,7 +52,7 @@ int	min_stack(t_stack **stk)
 	min = tmp->content;
 	while (tmp)
 	{
-		if (min > tmp->content)
+		if (tmp->content < min)
 			min = tmp->content;
 		tmp = tmp->next;
 	}
@@ -61,13 +61,13 @@ int	min_stack(t_stack **stk)
 
 void	divided_algo(t_data *stacks)
 {
-	int	sizea;
+	int	size_a;
 
-	sizea = stack_size(stacks->stack_a);
-	while (sizea > 3)
+	size_a = stack_size(stacks->stack_a);
+	while (size_a > 3)
 	{
 		stacks->min = min_stack(&stacks->stack_a);
-		if (find_index(stacks->stack_a, stacks->min) <= sizea / 2)
+		if (find_index(stacks->stack_a, stacks->min) <= size_a / 2)
 		{
 			while (stacks->stack_a->content != stacks->min)
 				accio("ra", stacks);
@@ -78,6 +78,6 @@ void	divided_algo(t_data *stacks)
 				accio("rra", stacks);
 		}
 		accio("pb", stacks);
-		sizea--;
+		size_a--;
 	}
 }

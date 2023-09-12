@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 21:54:19 by qbanet            #+#    #+#             */
-/*   Updated: 2023/09/10 16:28:13 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/09/12 15:13:26 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,23 +61,14 @@ int	min_stack(t_stack **stk)
 
 void	divided_algo(t_data *stacks)
 {
-	int	size_a;
-
-	size_a = stack_size(stacks->stack_a);
-	while (size_a > 3)
-	{
-		stacks->min = min_stack(&stacks->stack_a);
-		if (find_index(stacks->stack_a, stacks->min) <= size_a / 2)
-		{
-			while (stacks->stack_a->content != stacks->min)
-				accio("ra", stacks);
-		}
-		else
-		{
-			while (stacks->stack_a->content != stacks->min)
-				accio("rra", stacks);
-		}
-		accio("pb", stacks);
-		size_a--;
-	}
+	stacks->min = min_stack(&stacks->stack_a);
+	if (find_index(stacks->stack_a, stacks->min) <= stacks->sizes.size_a / 2)
+		while (stacks->stack_a->content != stacks->min)
+			accio("ra", stacks);
+	else
+		while (stacks->stack_a->content != stacks->min)
+			accio("rra", stacks);
+	accio("pb", stacks);
+	stacks->sizes.size_a = stack_size(stacks->stack_a);
+	stacks->sizes.size_b = stack_size(stacks->stack_b);
 }

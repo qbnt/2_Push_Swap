@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 18:44:42 by qbanet            #+#    #+#             */
-/*   Updated: 2023/09/10 16:38:19 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/09/12 15:12:11 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	turk_algo(t_data *stacks)
 		while (stacks->stack_b->content != stacks->max)
 			accio("rrb", stacks);
 	}
-	if (stacks->size_divided > 3)
+	while (stacks->sizes.size_a > 3)
 		divided_algo(stacks);
 	algo_3(stacks);
 	back_divided(stacks);
@@ -48,8 +48,8 @@ void	turk_algo(t_data *stacks)
 
 static void	sort_to_b(t_data *stacks)
 {
-	int		moves;
 	int		i;
+	int		moves;
 	t_stack	*tmp1;
 	t_stack	*tmp2;
 
@@ -59,7 +59,7 @@ static void	sort_to_b(t_data *stacks)
 	moves = test_moves(stacks, stacks->stack_a->content);
 	stacks->a_index = find_index(stacks->stack_a, stacks->stack_a->content);
 	stacks->b_index = find_place(stacks->stack_b, stacks->stack_a->content);
-	while (tmp1 && i <= moves)
+	while (i < moves && tmp1)
 	{
 		test_sort_b(stacks, &moves, tmp1, tmp2);
 		tmp1 = tmp1->next;
@@ -73,17 +73,17 @@ static void	sort_to_b(t_data *stacks)
 
 void	test_sort_b(t_data *stacks, int *moves, t_stack *tmp1, t_stack *tmp2)
 {
-	if (test_moves(stacks, tmp2->content) < *moves)
-	{
-		stacks->a_index = find_index(stacks->stack_a, tmp2->content);
-		stacks->b_index = find_place(stacks->stack_b, tmp2->content);
-		*moves = test_moves(stacks, tmp2->content);
-	}
 	if (test_moves(stacks, tmp1->content) < *moves)
 	{
 		stacks->a_index = find_index(stacks->stack_a, tmp1->content);
 		stacks->b_index = find_place(stacks->stack_b, tmp1->content);
 		*moves = test_moves(stacks, tmp1->content);
+	}
+	if (test_moves(stacks, tmp2->content) < *moves)
+	{
+		stacks->a_index = find_index(stacks->stack_a, tmp2->content);
+		stacks->b_index = find_place(stacks->stack_b, tmp2->content);
+		*moves = test_moves(stacks, tmp2->content);
 	}
 }
 
@@ -92,12 +92,12 @@ static void	back_divided(t_data *stacks)
 	int	i;
 
 	i = 3;
-	stacks->max = max_stack(&stacks->stack_b);
 	if (stacks->stack_a->content > stacks->stack_b->content)
 	{
 		while (stacks->stack_b->content != stacks->max)
 			accio("pa", stacks);
 	}
+	stacks->max = max_stack(&stacks->stack_b);
 	while (stacks->stack_b->content != stacks->max)
 	{
 		while (i > 0 && last_elem_stack(stacks->stack_a)->content

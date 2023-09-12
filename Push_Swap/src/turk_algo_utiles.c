@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 11:07:26 by qbanet            #+#    #+#             */
-/*   Updated: 2023/09/10 15:54:47 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/09/12 13:52:57 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	test_moves(t_data *stacks, int nbr)
 	if (find_place(stacks->stack_b, nbr) <= stacks->sizes.size_b / 2)
 		moves_b = find_place(stacks->stack_b, nbr);
 	else
-		moves_b = stacks->sizes.size_b - find_place(stacks->stack_b, nbr) + 1;
+		moves_b = stacks->sizes.size_b - find_place(stacks->stack_b, nbr);
 	return (moves_a + moves_b);
 }
 
@@ -57,7 +57,7 @@ int	find_place(t_stack *stk, int nbr)
 			tmp2 = tmp2->next;
 			i ++;
 		}
-		return (++ i);
+		return (++i);
 	}
 }
 
@@ -85,14 +85,14 @@ static void	double_rotate(int *a_ind, int *b_ind, t_data *stacks, t_sizes *s)
 			*b_ind = 0;
 		return (accio("rrr", stacks));
 	}
-	else if (*a_ind > s->size_a / 2 && *b_ind < s->size_b / 2)
+	else if (*a_ind >= s->size_a / 2 && *b_ind < s->size_b / 2)
 	{
 		if (++ *a_ind >= s->size_a)
 			*a_ind = 0;
 		accio("rra", stacks);
 		return (*b_ind -= 1, accio("rb", stacks));
 	}
-	else if (*a_ind <= s->size_a / 2 && *b_ind >= s->size_b / 2)
+	else if (*a_ind <= s->size_a / 2 && *b_ind > s->size_b / 2)
 	{
 		accio("ra", stacks);
 		if (++ *b_ind >= s->size_b)

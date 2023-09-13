@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 18:44:42 by qbanet            #+#    #+#             */
-/*   Updated: 2023/09/13 12:02:42 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/09/13 12:04:30 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,30 +28,7 @@ void	turk_algo(t_data *stacks)
 	stacks->sizes.size_b = stack_size(stacks->stack_b);
 	while (stacks->sizes.size_a > stacks->size_divided)
 		sort_to_b(stacks);
-	stacks->max = max_stack(&stacks->stack_b);
-	stacks->min = min_stack(&stacks->stack_a);
-	if (find_index(stacks->stack_b, stacks->max) <= stacks->sizes.size_b / 2)
-	{
-		if (stacks->stack_a->content != stacks->min
-			&& find_index(stacks->stack_a, stacks->min)
-			<= stacks->sizes.size_a / 2)
-			while (stacks->stack_b->content != stacks->max)
-				accio("rr", stacks);
-		else
-			while (stacks->stack_b->content != stacks->max)
-				accio("rb", stacks);
-	}
-	else
-	{
-		if (stacks->stack_a->content != stacks->min
-			&& find_index(stacks->stack_a, stacks->min)
-			> stacks->sizes.size_a / 2)
-			while (stacks->stack_b->content != stacks->max)
-				accio("rrr", stacks);
-		else
-			while (stacks->stack_b->content != stacks->max)
-				accio("rrb", stacks);
-	}
+	prepare_back(stacks);
 	while (stacks->sizes.size_a > 3)
 		divided_algo(stacks);
 	algo_3(stacks);

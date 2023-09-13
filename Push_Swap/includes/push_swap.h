@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 11:17:06 by qbanet            #+#    #+#             */
-/*   Updated: 2023/09/12 10:52:59 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/09/13 12:04:17 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ int		find_index(t_stack *stk, int content);
 int		max_stack(t_stack **stk);
 int		min_stack(t_stack **stk);
 void	divided_algo(t_data *stacks);
+void	prepare_back(t_data *stacks);
 
 /*----------------------------------------------------------------------------*/
 

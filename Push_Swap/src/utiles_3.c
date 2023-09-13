@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 21:54:19 by qbanet            #+#    #+#             */
-/*   Updated: 2023/09/12 15:13:26 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/09/13 12:04:03 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,4 +71,32 @@ void	divided_algo(t_data *stacks)
 	accio("pb", stacks);
 	stacks->sizes.size_a = stack_size(stacks->stack_a);
 	stacks->sizes.size_b = stack_size(stacks->stack_b);
+}
+
+void	prepare_back(t_data *stacks)
+{
+	stacks->max = max_stack(&stacks->stack_b);
+	stacks->min = min_stack(&stacks->stack_a);
+	if (find_index(stacks->stack_b, stacks->max) <= stacks->sizes.size_b / 2)
+	{
+		if (stacks->stack_a->content != stacks->min
+			&& find_index(stacks->stack_a, stacks->min)
+			<= stacks->sizes.size_a / 2)
+			while (stacks->stack_b->content != stacks->max)
+				accio("rr", stacks);
+		else
+			while (stacks->stack_b->content != stacks->max)
+				accio("rb", stacks);
+	}
+	else
+	{
+		if (stacks->stack_a->content != stacks->min
+			&& find_index(stacks->stack_a, stacks->min)
+			> stacks->sizes.size_a / 2)
+			while (stacks->stack_b->content != stacks->max)
+				accio("rrr", stacks);
+		else
+			while (stacks->stack_b->content != stacks->max)
+				accio("rrb", stacks);
+	}
 }

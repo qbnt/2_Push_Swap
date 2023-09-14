@@ -6,16 +6,16 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 11:55:20 by qbanet            #+#    #+#             */
-/*   Updated: 2023/09/14 12:26:09 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/09/14 13:46:43 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_l	ft_atol(const char *str)
+long	ft_atol(const char *str)
 {
-	t_l	nbr;
-	t_l	sign;
+	long	sign;
+	long	nbr;
 
 	sign = 1;
 	nbr = 0;

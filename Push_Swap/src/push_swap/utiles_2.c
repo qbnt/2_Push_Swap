@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 12:26:27 by qbanet            #+#    #+#             */
-/*   Updated: 2023/09/08 12:15:10 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/09/14 13:57:33 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	stack_size(t_stack *stk)
 	return (size);
 }
 
-t_stack	*insert_back_stack(t_stack *stk, int val)
+t_stack	*insert_back_stack(t_stack **stk, int val)
 {
 	t_stack	*new_node;
 	t_stack	*last;
@@ -52,17 +52,17 @@ t_stack	*insert_back_stack(t_stack *stk, int val)
 	new_node = malloc(sizeof(t_stack));
 	new_node->content = val;
 	new_node->next = NULL;
-	if (is_empty_stack(stk))
+	if (is_empty_stack(*stk))
 	{
 		new_node->prev = NULL;
 		return (new_node);
 	}
-	last = stk;
+	last = *stk;
 	while (last->next)
 		last = last->next;
 	last->next = new_node;
 	new_node->prev = last;
-	return (stk);
+	return (*stk);
 }
 
 t_stack	*last_elem_stack(t_stack *stk)

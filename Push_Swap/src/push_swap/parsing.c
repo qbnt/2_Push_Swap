@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 16:13:45 by qbanet            #+#    #+#             */
-/*   Updated: 2023/09/14 13:22:42 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/09/14 14:01:57 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,8 +77,9 @@ static void	set_node(t_stack **list, char *elem)
 	val = ft_atol(elem);
 	if (val > _INT_MAX || val < _INT_MIN)
 	{
-		if ((*list)->prev)
+		if ((*list))
 		{
+			printf("content de last = %d\n", *(*list)->prev->content);
 			while ((*list)->prev)
 			{
 				tmp = (*list);
@@ -88,7 +89,7 @@ static void	set_node(t_stack **list, char *elem)
 		}
 		error();
 	}
-	*list = insert_back_stack(*list, (int)val);
+	*list = insert_back_stack(list, (int)val);
 }
 
 static int	has_duplicate(char **elems)

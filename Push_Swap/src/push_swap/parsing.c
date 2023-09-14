@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 16:13:45 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/30 12:00:34 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/09/14 13:22:42 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,10 +70,25 @@ static t_stack	*pars_argv(char **args)
 
 static void	set_node(t_stack **list, char *elem)
 {
-	int		val;
+	t_l		val;
+	t_stack	*tmp;
 
-	val = ft_atoi(elem);
-	*list = insert_back_stack(*list, val);
+	tmp = (*list);
+	val = ft_atol(elem);
+	if (val > _INT_MAX || val < _INT_MIN)
+	{
+		if ((*list)->prev)
+		{
+			while ((*list)->prev)
+			{
+				tmp = (*list);
+				(*list) = tmp->prev;
+				free(tmp);
+			}
+		}
+		error();
+	}
+	*list = insert_back_stack(*list, (int)val);
 }
 
 static int	has_duplicate(char **elems)

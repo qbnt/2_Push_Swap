@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 11:17:06 by qbanet            #+#    #+#             */
-/*   Updated: 2023/09/14 13:58:22 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/09/14 15:07:46 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void	rrotate(t_stack **stk);
 
 /*push_swap.c*/
 void	push_swap(t_data *stacks);
+int		verif_atoi(const char **args);
 
 /*algo_3.c*/
 void	algo_3(t_data *stacks);

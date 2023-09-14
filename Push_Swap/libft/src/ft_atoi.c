@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 09:41:48 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/10 15:36:43 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/09/14 15:14:46 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,12 @@ int	ft_atoi(const char *str)
 	if (*str == '-')
 	{
 		sign *= -1;
-		str++;
+		while (*str == '-')
+			str++;
 	}
 	else if (*str == '+')
-		str ++;
+		while (*str == '+')
+			str ++;
 	while (*str >= '0' && *str <= '9')
 		nbr = (((int)*str++ - 48) + nbr * 10);
 	return (nbr * sign);

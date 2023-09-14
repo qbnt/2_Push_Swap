@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 16:46:26 by qbanet            #+#    #+#             */
-/*   Updated: 2023/09/13 11:28:53 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/09/14 15:06:38 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,20 @@ void	push_swap(t_data *stacks)
 	stacks->max = max_stack(&stacks->stack_a);
 	stacks->min = min_stack(&stacks->stack_a);
 	return (turk_algo(stacks));
+}
+
+int	verif_atoi(const char **args)
+{
+	int			i;
+	long long	test;
+
+	i = 0;
+	while (args[i])
+	{
+		test = ft_atol(args[i]);
+		if (test < _INT_MIN || test > _INT_MAX)
+			return (1);
+		i ++;
+	}
+	return (0);
 }

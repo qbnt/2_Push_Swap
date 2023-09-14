@@ -6,13 +6,13 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 11:55:20 by qbanet            #+#    #+#             */
-/*   Updated: 2023/09/14 13:46:43 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/09/14 15:02:26 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-long	ft_atol(const char *str)
+long long	ft_atol(const char *str)
 {
 	long	sign;
 	long	nbr;
@@ -29,6 +29,6 @@ long	ft_atol(const char *str)
 	else if (*str == '+')
 		str ++;
 	while (*str >= '0' && *str <= '9')
-		nbr = (((long)*str++ - 48) + nbr * 10);
+		nbr = (((long long)*str++ - 48) + nbr * 10);
 	return (nbr * sign);
 }

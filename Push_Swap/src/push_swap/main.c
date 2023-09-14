@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 11:18:52 by qbanet            #+#    #+#             */
-/*   Updated: 2023/09/09 21:45:54 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/09/14 15:18:02 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,10 @@ int	main(int argc, char **argv)
 
 	stacks = ft_calloc(1, sizeof(t_data));
 	if (argc < 2)
+	{
+		free (stacks);
 		return (1);
+	}
 	else if (argc == 2)
 		parsing_argv2(argv, stacks);
 	else if (argc > 2)

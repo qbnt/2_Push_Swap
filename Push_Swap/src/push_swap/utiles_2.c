@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 12:26:27 by qbanet            #+#    #+#             */
-/*   Updated: 2023/09/14 13:57:33 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/09/14 14:33:44 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,13 +55,16 @@ t_stack	*insert_back_stack(t_stack **stk, int val)
 	if (is_empty_stack(*stk))
 	{
 		new_node->prev = NULL;
-		return (new_node);
+		*stk = new_node;
 	}
-	last = *stk;
-	while (last->next)
-		last = last->next;
-	last->next = new_node;
-	new_node->prev = last;
+	else
+	{
+		last = *stk;
+		while (last->next)
+			last = last->next;
+		last->next = new_node;
+		new_node->prev = last;
+	}
 	return (*stk);
 }
 

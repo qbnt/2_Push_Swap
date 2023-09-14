@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 13:46:19 by qbanet            #+#    #+#             */
-/*   Updated: 2023/09/10 22:14:27 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/09/14 15:16:23 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ int	is_sort(t_stack **stk)
 	t_stack	*tmp;
 
 	tmp = *stk;
-	while (tmp)
+	while (tmp->next)
 	{
 		if (tmp->content > tmp->next->content)
 			return (0);

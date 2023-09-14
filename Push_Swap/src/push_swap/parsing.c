@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 16:13:45 by qbanet            #+#    #+#             */
-/*   Updated: 2023/09/14 14:01:57 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/09/14 15:10:02 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ void	parsing_argv2(char **argv, t_data *stacks)
 		free(stacks);
 		exit(EXIT_FAILURE);
 	}
-	else if (!verif_input(args) || has_duplicate(args))
+	else if (!verif_input(args) || has_duplicate(args)
+		|| verif_atoi((const char **)args))
 	{
 		free_split(args);
 		free(stacks);
@@ -43,7 +44,8 @@ void	parsing_argv2(char **argv, t_data *stacks)
 
 void	parsing_argv_else(char **argv, t_data *stacks)
 {
-	if (!verif_input(argv + 1) || has_duplicate(argv + 1))
+	if (!verif_input(argv + 1) || has_duplicate(argv + 1)
+		|| verif_atoi((const char **)argv + 1))
 	{
 		free(stacks);
 		error();
@@ -70,26 +72,10 @@ static t_stack	*pars_argv(char **args)
 
 static void	set_node(t_stack **list, char *elem)
 {
-	t_l		val;
-	t_stack	*tmp;
+	int		val;
 
-	tmp = (*list);
-	val = ft_atol(elem);
-	if (val > _INT_MAX || val < _INT_MIN)
-	{
-		if ((*list))
-		{
-			printf("content de last = %d\n", *(*list)->prev->content);
-			while ((*list)->prev)
-			{
-				tmp = (*list);
-				(*list) = tmp->prev;
-				free(tmp);
-			}
-		}
-		error();
-	}
-	*list = insert_back_stack(list, (int)val);
+	val = ft_atoi(elem);
+	*list = insert_back_stack(list, val);
 }
 
 static int	has_duplicate(char **elems)

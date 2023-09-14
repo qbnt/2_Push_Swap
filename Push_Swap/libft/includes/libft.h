@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 11:51:00 by qbanet            #+#    #+#             */
-/*   Updated: 2023/09/14 13:47:17 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/09/14 15:02:16 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -160,7 +160,7 @@ char		*ft_strncpy(char *dest, char *src, unsigned int n);
 
 int			ft_atoi(const char *str);
 int			ft_atoi_base(char *str, char *base);
-long		ft_atol(const char *str);
+long long	ft_atol(const char *str);
 char		*ft_strdup(const char *s);
 char		*ft_substr(char const *s, unsigned int start, size_t len);
 char		*ft_strjoin(char const *s1, char const *s2);

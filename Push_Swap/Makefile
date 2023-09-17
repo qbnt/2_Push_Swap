@@ -6,7 +6,7 @@
 #    By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/18 11:21:33 by qbanet            #+#    #+#              #
-#    Updated: 2023/09/13 13:56:04 by qbanet           ###   ########.fr        #
+#    Updated: 2023/09/17 11:17:34 by qbanet           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,9 +39,9 @@ SRC_FILES_PUSH_SWAP =	main.c\
 						error.c
 
 SRC_FILES_CHECKER =		main.c \
-						accio.c \
-						moves.c \
-						utiles1.c
+						read_instrucs.c \
+						exec_instrucs.c \
+						utiles.c
 
 SRC_PUSH_SWAP = $(addprefix $(SRC_DIR_PUSH_SWAP)/, $(SRC_FILES_PUSH_SWAP))
 SRC_CHECKER = $(addprefix $(SRC_DIR_CHECKER)/, $(SRC_FILES_CHECKER))

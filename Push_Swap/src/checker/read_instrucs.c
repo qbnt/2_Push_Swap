@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utiles1.c                                          :+:      :+:    :+:   */
+/*   read_instrucs.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/13 13:50:00 by qbanet            #+#    #+#             */
-/*   Updated: 2023/09/13 13:51:48 by qbanet           ###   ########.fr       */
+/*   Created: 2023/09/17 10:39:08 by qbanet            #+#    #+#             */
+/*   Updated: 2023/09/17 11:20:38 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,3 +14,21 @@
 
 /*----------------------------------------------------------------------------*/
 
+t_instrucs	*read_instrucs(void)
+{
+	char		*instruction;
+	t_instrucs	*instructions;
+	t_instrucs	*tmp;
+
+	instructions = NULL;
+	while (1)
+	{
+		instruction = get_next_line(0);
+		if (instruction == NULL)
+			break ;
+		tmp = instrucs_new(instruction);
+		instrucs_add_back(&instructions, tmp);
+		free(instruction);
+	}
+	return (instructions);
+}

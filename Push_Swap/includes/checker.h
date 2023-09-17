@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 13:46:56 by qbanet            #+#    #+#             */
-/*   Updated: 2023/09/13 13:57:16 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/09/17 11:21:52 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,46 +17,27 @@
 /***Inludes***/
 
 # include"libft.h"
+# include"push_swap.h"
 # include<stdio.h>
 
 /**Structs**/
 
-typedef struct s_stack
+typedef struct s_instrucs
 {
-	int				content;
-	struct s_stack	*next;
-	struct s_stack	*prev;
-}	t_stack;
-
-typedef struct s_sizes
-{
-	int				size_a;
-	int				size_b;
-}	t_sizes;
-
-typedef struct s_data
-{
-	t_stack			*stack_a;
-	t_stack			*stack_b;
-	t_sizes			sizes;
-	int				a_index;
-	int				b_index;
-	int				size_divided;
-	int				min;
-	int				max;
-}	t_data;
+	struct s_instrucs	*next;
+	char				*content;
+}	t_instrucs;
 
 /***Fonctions***/
 
-/*accio.c*/
-void	accio(char *op, t_data *stacks);
+/*read_instrucs.c*/
+t_instrucs	*read_instrucs(void);
 
-/*moves.c*/
-void	swap(t_stack **stk);
-void	push(t_stack **from, t_stack **to);
-void	rotate(t_stack **stk);
-void	rrotate(t_stack **stk);
+/*exec_instrucs.c*/
+int			exec_intrucs(t_instrucs *instructions, t_data *stacks);
 
-/*utiles1.c*/
+/*utiles.c*/
+void		instrucs_add_back(t_instrucs **lst, t_instrucs *n);
+t_instrucs	*instrucs_new(char *content);
 
 #endif

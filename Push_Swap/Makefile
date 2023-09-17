@@ -6,7 +6,7 @@
 #    By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/18 11:21:33 by qbanet            #+#    #+#              #
-#    Updated: 2023/09/17 11:17:34 by qbanet           ###   ########.fr        #
+#    Updated: 2023/09/17 12:15:19 by qbanet           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,33 +24,30 @@ INCLUDES = -I includes -I $(LIBFT_DIR)/includes
 SRC_DIR_PUSH_SWAP = src/push_swap
 SRC_DIR_CHECKER = src/checker
 
-SRC_FILES_PUSH_SWAP =	main.c\
-						parsing.c\
-						moves.c \
-						accio.c \
-						push_swap.c \
-						algo_3.c \
-						algo_5.c \
-						turk_algo.c \
-						turk_algo_utiles.c \
-						utiles_1.c \
-						utiles_2.c \
-						utiles_3.c \
-						error.c
+SRC_FILES_PUSH_SWAP = main.c\
+                     parsing.c\
+                     moves.c \
+                     accio.c \
+                     push_swap.c \
+                     algo_3.c \
+                     algo_5.c \
+                     turk_algo.c \
+                     turk_algo_utiles.c \
+                     utiles_1.c \
+                     utiles_2.c \
+                     utiles_3.c \
+                     error.c
 
-SRC_FILES_CHECKER =		main.c \
-						read_instrucs.c \
-						exec_instrucs.c \
-						utiles.c
+SRC_FILES_CHECKER = checker.c \
+                    read_instrucs.c \
+                    exec_instrucs.c \
+                    utiles.c
 
-SRC_PUSH_SWAP = $(addprefix $(SRC_DIR_PUSH_SWAP)/, $(SRC_FILES_PUSH_SWAP))
-SRC_CHECKER = $(addprefix $(SRC_DIR_CHECKER)/, $(SRC_FILES_CHECKER))
+OBJ_DIR_PUSH_SWAP = obj_push_swap
+OBJ_DIR_CHECKER = obj_checker
 
-OBJ_DIR = obj
-OBJ_FILES_PUSH_SWAP = $(SRC_FILES_PUSH_SWAP:.c=.o)
-OBJ_FILES_CHECKER = $(SRC_FILES_CHECKER:.c=.o)
-OBJ_PUSH_SWAP = $(addprefix $(OBJ_DIR)/, $(OBJ_FILES_PUSH_SWAP))
-OBJ_CHECKER = $(addprefix $(OBJ_DIR)/, $(OBJ_FILES_CHECKER))
+OBJ_FILES_PUSH_SWAP = $(addprefix $(OBJ_DIR_PUSH_SWAP)/, $(SRC_FILES_PUSH_SWAP:.c=.o))
+OBJ_FILES_CHECKER = $(addprefix $(OBJ_DIR_CHECKER)/, $(SRC_FILES_CHECKER:.c=.o))
 
 # Colors
 GREEN = \033[0;32m
@@ -63,31 +60,31 @@ ROCKET = 🚀
 
 all: $(NAME_PUSH_SWAP)
 
-$(NAME_PUSH_SWAP): $(OBJ_PUSH_SWAP)
+$(NAME_PUSH_SWAP): $(OBJ_FILES_PUSH_SWAP)
 	@$(MAKE) -C $(LIBFT_DIR)
-	@$(CC) $(CFLAGS) $(OBJ_PUSH_SWAP) $(LIBFT) -o $(NAME_PUSH_SWAP)
+	@$(CC) $(CFLAGS) $(OBJ_FILES_PUSH_SWAP) $(LIBFT) -o $(NAME_PUSH_SWAP)
 	@echo "$(GREEN)$(ROCKET) Compilation de $(NAME_PUSH_SWAP) terminée avec succès ! $(ROCKET)$(RESET)"
 
-$(OBJ_DIR)/%.o: $(SRC_DIR_PUSH_SWAP)/%.c
-	@mkdir -p $(OBJ_DIR)
+$(OBJ_DIR_PUSH_SWAP)/%.o: $(SRC_DIR_PUSH_SWAP)/%.c
+	@mkdir -p $(OBJ_DIR_PUSH_SWAP)
 	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 	@echo "$(YELLOW)$(CHECK) $(notdir $@) compilé$(RESET)"
 
 bonus: $(NAME_CHECKER)
 
-$(NAME_CHECKER): $(OBJ_CHECKER)
+$(NAME_CHECKER): $(OBJ_FILES_CHECKER)
 	@$(MAKE) -C $(LIBFT_DIR)
-	@$(CC) $(CFLAGS) $(OBJ_CHECKER) $(LIBFT) -o $(NAME_CHECKER)
+	@$(CC) $(CFLAGS) $(OBJ_FILES_CHECKER) $(LIBFT) -o $(NAME_CHECKER)
 	@echo "$(GREEN)$(ROCKET) Compilation de $(NAME_CHECKER) terminée avec succès ! $(ROCKET)$(RESET)"
 
-$(OBJ_DIR)/%.o: $(SRC_DIR_CHECKER)/%.c
-	@mkdir -p $(OBJ_DIR)
+$(OBJ_DIR_CHECKER)/%.o: $(SRC_DIR_CHECKER)/%.c
+	@mkdir -p $(OBJ_DIR_CHECKER)
 	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 	@echo "$(YELLOW)$(CHECK) $(notdir $@) compilé$(RESET)"
 
 clean:
 	@$(MAKE) -C $(LIBFT_DIR) clean
-	@rm -rf $(OBJ_DIR)
+	@rm -rf $(OBJ_DIR_PUSH_SWAP) $(OBJ_DIR_CHECKER)
 	@echo "$(GREEN)$(CHECK) Nettoyage des fichiers objets terminé$(RESET)"
 
 fclean: clean
@@ -102,4 +99,5 @@ save: fclean
 
 re: fclean all
 
-.PHONY: all clean fclean re bonus
+.PHONY: all clean fclean re bonus save
+

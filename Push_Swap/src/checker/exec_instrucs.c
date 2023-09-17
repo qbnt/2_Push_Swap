@@ -6,11 +6,12 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/17 10:30:20 by qbanet            #+#    #+#             */
-/*   Updated: 2023/09/17 10:38:43 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/09/17 11:49:24 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
+#include "push_swap.h"
 
 static int	accio_instrucs(char *instruction, t_data *stacks);
 

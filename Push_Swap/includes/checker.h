@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 13:46:56 by qbanet            #+#    #+#             */
-/*   Updated: 2023/09/17 11:21:52 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/09/17 11:47:51 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,8 @@
 
 /***Inludes***/
 
-# include"libft.h"
-# include"push_swap.h"
-# include<stdio.h>
+# include "push_swap.h"
+# include <stdio.h>
 
 /**Structs**/
 

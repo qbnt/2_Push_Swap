@@ -1,16 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 13:44:33 by qbanet            #+#    #+#             */
-/*   Updated: 2023/09/17 11:12:08 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/09/17 12:03:25 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
+#include "push_swap.h"
 
 static void	check_sort(t_data *stacks);
 
@@ -23,7 +24,7 @@ int	main(int argc, char **argv)
 
 	if (argc < 2)
 		return (0);
-	ft_calloc(1, sizeof(t_data));
+	stacks = ft_calloc(1, sizeof(t_data));
 	if (argc == 2)
 		parsing_argv2(argv, stacks);
 	else if (argc > 2)
@@ -39,7 +40,7 @@ int	main(int argc, char **argv)
 
 static void	check_sort(t_data *stacks)
 {
-	if (is_sort(stacks->stack_a))
+	if (is_sort(&stacks->stack_a))
 		ft_printf("OK\n");
 	else
 		ft_printf("KO\n");

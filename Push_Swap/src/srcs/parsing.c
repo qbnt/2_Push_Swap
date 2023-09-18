@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 16:13:45 by qbanet            #+#    #+#             */
-/*   Updated: 2023/09/14 15:10:02 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/09/18 13:13:39 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ static int	has_duplicate(char **elems)
 		j = i + 1;
 		while (elems[j])
 		{
-			if (ft_strcmp(elems[i], elems[j]) == 0)
+			if (ft_atol(elems[i]) == ft_atol(elems[j]))
 				return (1);
 			j ++;
 		}

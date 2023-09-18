@@ -1,0 +1,8 @@
+{
+	"files.associations": {
+		"random": "c",
+		"limits": "c",
+		"libft.h": "c"
+	},
+	"cmake.configureOnOpen": false
+}

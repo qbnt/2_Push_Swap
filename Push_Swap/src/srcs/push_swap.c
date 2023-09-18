@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 16:46:26 by qbanet            #+#    #+#             */
-/*   Updated: 2023/09/14 15:06:38 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/09/18 09:51:54 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,29 @@ int	verif_atoi(const char **args)
 		i ++;
 	}
 	return (0);
+}
+
+void	end_free(t_data *stacks)
+{
+	t_stack	*tmp;
+
+	if (stacks->stack_a)
+	{
+		while (stacks->stack_a)
+		{
+			tmp = stacks->stack_a;
+			stacks->stack_a = tmp->next;
+			free(tmp);
+		}
+	}
+	if (stacks->stack_b)
+	{
+		while (stacks->stack_b)
+		{
+			tmp = stacks->stack_b;
+			stacks->stack_b = tmp->next;
+			free(tmp);
+		}
+	}
+	free(stacks);
 }

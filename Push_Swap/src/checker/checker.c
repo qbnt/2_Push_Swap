@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 13:44:33 by qbanet            #+#    #+#             */
-/*   Updated: 2023/09/17 12:03:25 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/09/18 09:57:06 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,10 @@ int	main(int argc, char **argv)
 	if (!exec_intrucs(instructions, stacks))
 		ft_printf("ERROR\n");
 	else
+	{
+		ft_printstk(stacks->stack_a);
 		check_sort(stacks);
+	}
 	end_free(stacks);
 	return (0);
 }

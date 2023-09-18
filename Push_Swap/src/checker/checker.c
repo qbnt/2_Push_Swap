@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 13:44:33 by qbanet            #+#    #+#             */
-/*   Updated: 2023/09/18 09:57:06 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/09/18 11:54:27 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "push_swap.h"
 
 static void	check_sort(t_data *stacks);
+void	end_free2(t_data *stacks, t_instrucs *inst);
 
 /*----------------------------------------------------------------------------*/
 
@@ -33,11 +34,8 @@ int	main(int argc, char **argv)
 	if (!exec_intrucs(instructions, stacks))
 		ft_printf("ERROR\n");
 	else
-	{
-		ft_printstk(stacks->stack_a);
 		check_sort(stacks);
-	}
-	end_free(stacks);
+	end_free2(stacks, instructions);
 	return (0);
 }
 
@@ -47,4 +45,17 @@ static void	check_sort(t_data *stacks)
 		ft_printf("OK\n");
 	else
 		ft_printf("KO\n");
+}
+
+void	end_free2(t_data *stacks, t_instrucs *inst)
+{
+	t_instrucs	*tmp1;
+
+	while (inst)
+	{
+		tmp1 = inst;
+		inst = tmp1->next;
+		free(tmp1);
+	}
+	end_free(stacks);
 }

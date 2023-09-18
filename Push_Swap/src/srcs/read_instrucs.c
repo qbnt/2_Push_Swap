@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/17 10:39:08 by qbanet            #+#    #+#             */
-/*   Updated: 2023/09/18 10:21:06 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/09/18 11:22:02 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,14 @@ t_instrucs	*read_instrucs(void)
 	t_instrucs	*tmp;
 
 	instructions = NULL;
-	while (1)
+	instruction = get_next_line(0);
+	while (instruction)
 	{
-		instruction = get_next_line(0);
-		if (instruction == NULL)
-			break ;
 		tmp = instrucs_new(instruction);
 		instrucs_add_back(&instructions, tmp);
 		free(instruction);
+		instruction = get_next_line(0);
 	}
+	free(instruction);
 	return (instructions);
 }

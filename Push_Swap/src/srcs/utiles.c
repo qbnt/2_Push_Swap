@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/17 11:16:54 by qbanet            #+#    #+#             */
-/*   Updated: 2023/09/17 11:59:03 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/09/18 11:18:36 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ t_instrucs	*instrucs_new(char *content)
 	oui = malloc(sizeof(t_instrucs));
 	if (!oui)
 		return (NULL);
-	oui->content = content;
+	oui->content = ft_strdup(content);
 	oui->next = NULL;
 	return (oui);
 }

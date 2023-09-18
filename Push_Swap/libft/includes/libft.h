@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 11:51:00 by qbanet            #+#    #+#             */
-/*   Updated: 2023/09/14 15:02:16 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/09/18 20:44:49 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -194,11 +194,12 @@ t_list		*ft_lstmap(t_list *lst, void*(*f)(void *), void (*del)(void *));
 
 /*********** GNL ***********/
 
-char		*ft_strdup_gnl(char *str, size_t c);
-size_t		ft_strlen_gnl(char *s);
-char		*ft_check_gnl(char *str, int c);
-char		*ft_strjoin_gnl(char *s1, char *s2);
 char		*get_next_line(int fd);
+int			ft_linelen(char *s);
+char		*ft_strchr(const char *s, int c);
+char		*ft_strjoin(char const *s1, char const *s2);
+size_t		ft_strlen(const char *s);
+size_t		ft_strlcat(char *dst, const char *src, size_t dstsize);
 int			ft_gnl(int fd, char **line, int n);
 int			ft_free_gnl(t_gnl **lst);
 void		ft_list_add_last(t_gnl **save, t_gnl *elem);

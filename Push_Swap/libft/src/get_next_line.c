@@ -6,13 +6,13 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 11:22:10 by quentinba         #+#    #+#             */
-/*   Updated: 2023/08/10 15:48:55 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/09/18 20:42:32 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_linelen(char *s)
+int	ft_linelen(char *s)
 {
 	size_t	i;
 
@@ -24,7 +24,7 @@ static int	ft_linelen(char *s)
 	return (i + 1);
 }
 
-static char	*ft_extract_line(char *buffer)
+char	*ft_extract_line(char *buffer)
 {
 	char	*line;
 	int		size;
@@ -39,7 +39,7 @@ static char	*ft_extract_line(char *buffer)
 	return (line);
 }
 
-static char	*ft_read(int fd, char *buffer)
+char	*ft_read(int fd, char *buffer)
 {
 	char	*new_buffer;
 	char	*reading;
@@ -64,7 +64,7 @@ static char	*ft_read(int fd, char *buffer)
 	return (buffer);
 }
 
-static char	*ft_remove_line(char *buffer)
+char	*ft_remove_line(char *buffer)
 {
 	int		start;
 	char	*newbuffer;

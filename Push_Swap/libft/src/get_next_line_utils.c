@@ -6,85 +6,58 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 09:53:42 by qbanet            #+#    #+#             */
-/*   Updated: 2023/03/23 12:51:53 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/09/18 20:45:00 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup_gnl(char *str, size_t c)
-{
-	char	*res;
-	size_t	i;
-
-	i = 0;
-	while (str[i])
-		i ++;
-	res = (char *)malloc((i - c + 1) * sizeof(char));
-	if (!res)
-		return (NULL);
-	i = 0;
-	while (str[i + c])
-	{
-		res[i] = str[i + c];
-		i ++;
-	}
-	res[i] = '\0';
-	return (res);
-}
-
-size_t	ft_strlen_gnl(char *s)
+size_t	ft_strlen(const char *s)
 {
 	size_t	i;
 
 	i = 0;
-	if (!s)
-		return (0);
-	while (s[i])
-		i ++;
+	while (*(s + i) != '\0')
+		i++;
 	return (i);
 }
 
-char	*ft_check_gnl(char *str, int c)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	int	i;
-
-	i = 0;
-	if (!str)
-		return (NULL);
-	while (str[i])
-	{
-		if (str[i] == (char)c)
-			return ((char *)(str + i));
-		i ++;
-	}
-	if ((char)c == 0)
-		return ((char *)(str + i));
-	return (NULL);
-}
-
-char	*ft_strjoin_gnl(char *s1, char *s2)
-{
-	char	*res;
+	int		size;
+	char	*str;
 	int		i;
 	int		j;
 
-	i = 0;
-	res = (char *)malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
-	if (!res)
+	size = ft_strlen(s1) + ft_strlen(s2);
+	str = malloc(sizeof(char) * (size + 1));
+	if (!str || !s1 || !s2)
 		return (NULL);
-	if (s1)
+	i = 0;
+	while (s1[i] != 0)
 	{
-		while (s1[i])
-		{
-			res[i] = s1[i];
-			i ++;
-		}
-		free(s1);
+		str[i] = s1[i];
+		i++;
 	}
 	j = 0;
-	while (s2[j])
-		res[i ++] = s2[j ++];
-	res[i] = 0;
-	return (res);
+	while (s2[j] != 0)
+	{
+		str[i] = s2[j];
+		i++;
+		j++;
+	}
+	str[size] = '\0';
+	return (str);
+}
+
+char	*ft_strchr(const char *s, int c)
+{
+	char	myc;
+
+	myc = (char)c;
+	while (*s != '\0' && *s != myc)
+		s++;
+	if (*s == myc)
+		return ((char *)s);
+	return (0);
 }

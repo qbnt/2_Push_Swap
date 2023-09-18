@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 13:44:33 by qbanet            #+#    #+#             */
-/*   Updated: 2023/09/18 11:54:27 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/09/18 12:44:57 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "push_swap.h"
 
 static void	check_sort(t_data *stacks);
-void	end_free2(t_data *stacks, t_instrucs *inst);
+void		end_free2(t_data *stacks, t_instrucs *inst);
 
 /*----------------------------------------------------------------------------*/
 

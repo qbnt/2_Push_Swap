@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 11:07:26 by qbanet            #+#    #+#             */
-/*   Updated: 2023/09/12 13:52:57 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/09/18 13:32:16 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ int	test_moves(t_data *stacks, int nbr)
 		moves_a = find_index(stacks->stack_a, nbr);
 	else
 		moves_a = stacks->sizes.size_a - find_index(stacks->stack_a, nbr);
-
 	if (find_place(stacks->stack_b, nbr) <= stacks->sizes.size_b / 2)
 		moves_b = find_place(stacks->stack_b, nbr);
 	else

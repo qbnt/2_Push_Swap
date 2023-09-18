@@ -15,10 +15,9 @@
 
 /*----------------------------------------------------------------------------*/
 /***inludes***/
-# include"libft.h"
-# include"push_swap_structs.h"
-# include"push_swap_defines.h"
-# include<stdio.h>
+# include "libft.h"
+# include "push_swap_structs.h"
+# include <stdio.h>
 
 /***Fonctions***/
 

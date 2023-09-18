@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 13:44:33 by qbanet            #+#    #+#             */
-/*   Updated: 2023/09/18 12:44:57 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/09/18 16:52:01 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	main(int argc, char **argv)
 	instructions = read_instrucs();
 	if (!exec_intrucs(instructions, stacks))
 		ft_printf("ERROR\n");
-	else
+	else if (stacks->stack_a)
 		check_sort(stacks);
 	end_free2(stacks, instructions);
 	return (0);

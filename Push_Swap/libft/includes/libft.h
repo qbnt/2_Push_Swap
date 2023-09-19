@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 11:51:00 by qbanet            #+#    #+#             */
-/*   Updated: 2023/09/18 20:44:49 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/09/19 09:54:52 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 
 /********************************** INCLUDES **********************************/
 
-# include<stdlib.h>
-# include<unistd.h>
-# include<stdarg.h>
-# include<signal.h>
+# include <stdlib.h>
+# include <unistd.h>
+# include <stdarg.h>
+# include <signal.h>
 # include <fcntl.h>
 
 /********************************** STRUCTS ***********************************/

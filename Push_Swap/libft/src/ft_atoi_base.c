@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 17:12:43 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/29 14:49:57 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/09/19 09:56:00 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,8 +85,8 @@ int	ft_atoi_base(char *str, char *base)
 	if (!(base_length) || !check_errors(str, base))
 		return (0);
 	s = 0;
-	while (str[s] != '\0' && (str[s] == ' ' || str[s] == '\t' || str[s] == '\r'
-			|| str[s] == '\n' || str[s] == '\v' || str[s] == '\f'))
+	while (str[s] != 0 && (str[s] == 32 || str[s] == 9 || str[s] == 13
+			|| str[s] == 10 || str[s] == 11 || str[s] == 12))
 		s++;
 	i = s - 1;
 	res = 0;

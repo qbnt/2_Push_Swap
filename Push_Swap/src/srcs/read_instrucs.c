@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/17 10:39:08 by qbanet            #+#    #+#             */
-/*   Updated: 2023/09/18 20:38:47 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/09/19 09:19:32 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,20 +24,21 @@ t_instrucs	*read_instrucs(void)
 	t_instrucs	*tmp;
 
 	instructions = NULL;
-	instruction = get_next_line(0);
-	while (instruction)
+	instruction = ft_calloc(1, sizeof(char *));
+	while (read(0, instruction, 5))
 	{
 		if (!check_instruc(instruction))
 		{
 			ft_printf("Error\n");
 			tmp = instrucs_new("banane");
+			instrucs_add_back(&instructions, tmp);
 			free(instruction);
-			return (tmp);
+			return (instructions);
 		}
 		tmp = instrucs_new(instruction);
 		instrucs_add_back(&instructions, tmp);
 		free(instruction);
-		instruction = get_next_line(0);
+		instruction = ft_calloc(1, sizeof(char *));
 	}
 	free(instruction);
 	return (instructions);

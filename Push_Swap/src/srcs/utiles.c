@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/17 11:16:54 by qbanet            #+#    #+#             */
-/*   Updated: 2023/09/18 11:18:36 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/09/19 09:23:31 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,14 @@ t_instrucs	*instrucs_new(char *content)
 	oui->content = ft_strdup(content);
 	oui->next = NULL;
 	return (oui);
+}
+
+t_instrucs	*last_elem_instrucs(t_instrucs *stk)
+{
+	t_instrucs	*last;
+
+	last = stk;
+	while (last->next)
+		last = last->next;
+	return (last);
 }

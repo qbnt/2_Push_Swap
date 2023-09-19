@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 13:44:33 by qbanet            #+#    #+#             */
-/*   Updated: 2023/09/18 20:12:02 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/09/19 09:26:08 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@ int	main(int argc, char **argv)
 	else if (argc > 2)
 		parsing_argv_else(argv, stacks);
 	instructions = read_instrucs();
-	if (instructions && !ft_strncmp(instructions->content, "banane", 6))
+	if (instructions
+		&& !ft_strncmp(last_elem_instrucs(instructions)->content, "banane", 6))
 	{
-		free(instructions->content);
 		end_free2(stacks, instructions);
 		return (1);
 	}
@@ -61,6 +61,7 @@ void	end_free2(t_data *stacks, t_instrucs *inst)
 	{
 		tmp1 = inst;
 		inst = tmp1->next;
+		free(tmp1->content);
 		free(tmp1);
 	}
 	end_free(stacks);

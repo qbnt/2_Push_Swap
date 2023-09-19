@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/17 10:30:20 by qbanet            #+#    #+#             */
-/*   Updated: 2023/09/18 19:47:23 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/09/19 09:27:05 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ static int	accio_instrucs(char *instruction, t_data *stacks)
 		|| !ft_strncmp(instruction, "rrr\n", 2))
 	{
 		acciom(instruction, stacks);
-		free(instruction);
 		return (1);
 	}
 	return (0);
